@@ -1,0 +1,201 @@
+{
+    "Header": {
+        "Kurumsal": "Kurumsal",
+        "FaaliyetAlanlari": "Faaliyet Alanları",
+        "Projelerimiz": "Projelerimiz",
+        "Markalar": "Markalar",
+        "Iletisim": "İletişim",
+        "Kataloglar": "Kataloglar",
+        "Referanslar": "Referanslar"
+    },
+    "Kurumsal": {
+        "Hakkimizda": "Hakkımızda",
+        "KaliteCevreISG": "Kalite Çevre ve ISG Politikası",
+        "EtikKurallarimiz": "Etik Kurallarımız",
+        "InsanKaynaklari": "İnsan Kaynakları",
+        "Referanslar": "Referanslar",
+        "BizKimiz": "Biz Kimiz?",
+        "KurumsalParagraf1": "Aksu Mekanik, mekanik tesisat sektöründe yüksek prestije sahip olan ve ileri teknolojiyi temsil eden markaların üstün nitelikli ürünlerini pazarlamak ve Taahhüt Uygulama amacıyIa,sektörde uzun yıllar boyu olan tecrübeleri ile Gebze'de kuruldu. Ticari hayatta itibar edinmenin ve bunu sürdürebilmenin ne kadar önemli olduğunun bilinciyle ve sahip olduğumuz birinci sınıf hizmet sunma amacıyla, sektördeki birçok değerli markayı çözüm ortağı olarak bünyesine kattı ve halen de katmaya devam etmektedir.",
+        "KurumsalParagraf2": "Siz değerli müşterilerimizin ihtiyaçlarına, temsil ettiğimiz kaliteli markalar, müşteri ve insan odaklı bakış açımız, çok yönlü ve rekabetçi ticaret anlayışımız ve nitelikli mühendislik yaklaşımımızla en İyi şekilde cevap verme gayretini sürdürmek tüm amacımızdır. İhtiyaçların ve teknolojinin hızlı bir değişim içinde olduğu günümüz dünyasına ayak uydurabilmek için, ısıtma, soğutma, sıhhi tesisat, altyapı ve enerji konularındaki mühendislik birikimimiz ve iyi eğitimli uzmanlardan oluşan ekibimiz ile satış öncesi, satış sırası ve satış sonrasındaki tüm müşteri ihtiyaçları için hızlı ve doğru çözümler üreterek, sektörde daima güvenilir ve saygın bir firma olma yolunda durmadan ilerliyoruz.",
+        "KurumsalParagraf3": "Gelecekte de yüksek katma değerli hizmet alabileceğiniz güvenilir tedarikçiniz olarak, sektörde yer almaya devam etmek en büyük gayemizdir. Yeniliklere açık hizmet anlayışımız ve sürekli iyileştirme düsturumuz ile hedefimiz 'en iyi' olmaktır.",
+        "TamamlananProje": "Tamamlanan Proje",
+        "DevamEdenProje": "Devam Eden Proje"
+    },
+    "FaaliyetAlanlari": {
+        "PageTitle": "Kalitemiz, Tecrübemize Dayalıdır.",
+        "Text": "Aksu Mekanik, yürürlükteki mevzuatlar ile uluslararası standartlara uygun olarak her türlü yapı segmenti için sistem çözümlerini sunmaktadır;",
+        "HavalandirmaTesisati": "Havalandırma Tesisatı",
+        "IsitmaSogutma": "Isıtma - Soğutma",
+        "DogalgazTesisati": "Doğalgaz Tesisatı",
+        "ElektrikOtomasyon": "Elektrik Otomasyon",
+        "YanginTesisati": "Yangın Tesisatı",
+        "SihhiTesisat": "Sıhhi Tesisat"
+    },
+    "Projelerimiz": {
+        "DevamEdenProjelerimiz": "Devam Eden Projelerimiz",
+        "TamamlananProjelerimiz": "Tamamlanan Projelerimiz",
+        "Devami": "Devamı",
+        "ProjeDetaylari": "Proje Detayları",
+        "Isveren": "İşveren",
+        "Yer": "Yer",
+        "Alan": "Alan",
+        "ProjeTarihi": "Proje Tarihi"
+    },
+    "KatalogVeReferanslar": {
+        "Kataloglar": "Kataloglar",
+        "Referanslar": "Referanslar"
+    },
+    "Banner": {
+        "TumProjelerimiz": "Tüm Projelerimiz",
+        "Sayilarla": "Sayılarla",
+        "DetayGor": "Detay Gör"
+    },
+    "Anasayfa": {
+        "Ozet": "Aksu Mekanik, mekanik tesisat sektöründe yüksek prestije sahip olan ve ileri teknolojiyi temsil eden markaların üstün nitelikli ürünlerini pazarlamak ve Taahhüt Uygulama amacıyIa, sektörde uzun yıllar boyu olan tecrübeleri ile Gebze’de kuruldu.",
+        "HizmetlerizVeSertifikalarimiz": "Hizmetlerimiz ve Sertifikalarımız",
+        "Hizmetlerimiz": "Hizmetlerimiz",
+        "Sertifikalarimiz": "Sertifikalarımız"
+    },
+    "Iletisim": {
+        "IletisimFormu": {
+            "BizeUlasin": "Bize Ulaşın",
+            "IsimSoyisim": "İsim Soyisim",
+            "Eposta": "Eposta",
+            "Telefon": "Telefon",
+            "Konu": "Konu",
+            "Mesaj": "Mesaj",
+            "MailGonder": "Mail Gönder",
+            "HataMesaji": "Mail gönderilirken bir hata oluştu",
+            "BasariliMesaji": "Mail başarıyla gönderildi",
+            "IsimError": "İsim Soyisim alanı zorunludur",
+            "EpostaError": "Eposta alanı zorunludur",
+            "EpostaGecersiz": "Geçersiz Eposta",
+            "TelefonGecersiz": "Telefon numarası 05 ile başlamalı ve 11 haneli olmalıdır",
+            "TelefonError": "Telefon alanı zorunludur",
+            "MesajError": "Mesaj en az 10 karakter olmalı"
+        },
+        "IletisimBilgileri": {
+            "Adres": "Adres",
+            "MerkezOfis": "Merkez Ofis",
+            "IletisimNumaralari": "İletişim Numaraları",
+            "Ofis": "Ofis",
+            "EmailAdresleri": "Email Adresleri"
+        }
+    },
+    "Urunler": {
+        "Urunler": "Ürünler"
+    },
+    "KaliteCevreISG": {
+        "PageTitle": "Kalite, Çevre ve İSG Politikası",
+        "Intro": "Aksu Mekanik olarak; müşterilerimize sunduğumuz hizmetlerde kaliteyi sürekli artırmayı, çevresel sürdürülebilirliği sağlamayı ve çalışanlarımızın sağlığı ile güvenliğini en üst düzeyde korumayı temel ilke edinmiş bulunmaktayız.",
+        "KalitePolitikamiz": {
+            "Title": "Kalite Politikamız",
+            "Items": {
+                "1": "Müşteri memnuniyetini ön planda tutarak, taleplerine zamanında ve eksiksiz şekilde yanıt vermeyi,",
+                "2": "Sürekli iyileştirme yaklaşımıyla kalite yönetim sistemimizi etkin şekilde uygulamayı,",
+                "3": "Ulusal ve uluslararası standartlara, mevzuatlara ve yasal gerekliliklere uygun hizmet sunmayı,",
+                "4": "Çalışanlarımızın bilgi, beceri ve yetkinliklerini artırmak amacıyla sürekli eğitim ve gelişim faaliyetlerini desteklemeyi,",
+                "5": "Tedarikçilerimizle iş birliği içinde, karşılıklı güven ve kalite odaklı bir çalışma anlayışını benimsemeyi taahhüt ederiz."
+            }
+        },
+        "CevrePolitikamiz": {
+            "Title": "Çevre Politikamız",
+            "Items": {
+                "1": "Faaliyetlerimiz sırasında doğal kaynakların verimli kullanımını sağlayarak çevresel etkilerimizi en aza indirmeyi,",
+                "2": "Atıklarımızı azaltarak geri dönüşüm ve yeniden kullanım olanaklarını artırmayı,",
+                "3": "Çevre ile ilgili tüm yasal yükümlülüklere ve mevzuatlara uymayı,",
+                "4": "Çevresel performansımızı sürekli gözden geçirerek iyileştirmeyi,",
+                "5": "Çalışanlarımızı ve iş ortaklarımızı çevre bilinci konusunda bilinçlendirmeyi taahhüt ederiz."
+            }
+        },
+        "ISGPolitikamiz": {
+            "Title": "İş Sağlığı ve Güvenliği Politikamız",
+            "Items": {
+                "1": "Tüm çalışanlarımızın güvenli ve sağlıklı bir çalışma ortamında faaliyet göstermesini sağlamayı,",
+                "2": "İş kazalarını ve meslek hastalıklarını önlemeye yönelik riskleri önceden tespit ederek gerekli önlemleri almayı,",
+                "3": "Yasal düzenlemelere, yönetmeliklere ve standartlara tam uyum sağlamayı,",
+                "4": "Tüm çalışanlarımızın İSG sorumluluklarının farkında olduğu bir iş kültürü oluşturmayı,",
+                "5": "İSG performansımızı sürekli izleyerek iyileştirmeyi taahhüt ederiz."
+            }
+        }
+    },
+    "EtikKurallar": {
+        "PageTitle": "Etik Kurallar Politikası",
+        "Intro": "Aksu Mekanik olarak; faaliyet gösterdiğimiz tüm alanlarda dürüstlük, şeffaflık, adalet ve sorumluluk temelinde hareket etmeyi ilke ediniyoruz. Çalışanlarımızın, iş ortaklarımızın, müşterilerimizin ve toplumun bize duyduğu güvenin sürdürülebilirliği, etik değerlere olan bağlılığımızla mümkündür.",
+        "Items": [
+            {
+                "Title": "1. Dürüstlük ve Güvenilirlik",
+                "Details": [
+                    "Tüm ilişkilerimizde dürüstlük ve güvenilirlik esastır.",
+                    "Taahhüt ettiğimiz sözleri zamanında ve eksiksiz olarak yerine getiririz.",
+                    "Bilgi paylaşımında doğru, açık ve eksiksiz davranırız."
+                ]
+            },
+            {
+                "Title": "2. Yasalara ve Düzenlemelere Uyum",
+                "Details": [
+                    "Faaliyet gösterdiğimiz tüm alanlarda yürürlükteki yasa, yönetmelik ve standartlara uygun davranırız.",
+                    "Yasalara aykırı hiçbir faaliyetin içinde bulunmayız ve bu tür durumlara göz yummayız."
+                ]
+            },
+            {
+                "Title": "3. Gizlilik ve Bilgi Güvenliği",
+                "Details": [
+                    "Müşteri, çalışan ve iş ortaklarına ait her türlü gizli bilgiyi koruruz.",
+                    "Şirket içi bilgileri sadece yetkilendirilmiş kişilerle ve iş amacıyla paylaşırız.",
+                    "Şirket kaynaklarını kişisel çıkarlar için kullanmayız."
+                ]
+            },
+            {
+                "Title": "4. Adil ve Saygılı Davranış",
+                "Details": [
+                    "Çalışanlar arasında ayrım gözetmeksizin eşit, adil ve saygılı bir çalışma ortamı sağlarız.",
+                    "Irk, dil, din, cinsiyet, yaş veya herhangi bir farklılık üzerinden ayrımcılık yapılmasına müsaade etmeyiz.",
+                    "İş yerinde mobbing, taciz veya aşağılayıcı davranışlara kesinlikle tolerans göstermeyiz."
+                ]
+            },
+            {
+                "Title": "5. Çıkar Çatışmasından Kaçınma",
+                "Details": [
+                    "Kişisel çıkarlarımız ile şirket çıkarları arasında çelişki oluşturacak durumlardan kaçınırız.",
+                    "Şirket kaynaklarını, unvanımızı veya bilgilerimizi kişisel fayda sağlamak amacıyla kullanmayız.",
+                    "Aile bireylerimizin veya yakınlarımızın şirketle doğrudan çıkar ilişkisi kurmasından kaçınırız."
+                ]
+            },
+            {
+                "Title": "6. Hediye ve Ağırlama",
+                "Details": [
+                    "Tarafsızlığımızı etkileyebilecek veya bu izlenimi yaratabilecek hediye, ödeme ya da ayrıcalıkları kabul etmeyiz.",
+                    "Müşterilere, tedarikçilere veya resmi kurumlara yasal sınırların ötesinde herhangi bir menfaat sağlamayız."
+                ]
+            },
+            {
+                "Title": "7. İş Sağlığı, Güvenliği ve Çevre",
+                "Details": [
+                    "İş yerinde güvenli ve sağlıklı bir çalışma ortamı sağlamak her çalışanın sorumluluğudur.",
+                    "Tüm faaliyetlerimizi çevreye duyarlı ve sürdürülebilirlik ilkeleri doğrultusunda yürütürüz."
+                ]
+            },
+            {
+                "Title": "8. Toplumsal Sorumluluk ve İtibar",
+                "Details": [
+                    "Toplumun değerlerine saygı gösterir, sosyal sorumluluk bilinciyle hareket ederiz.",
+                    "Şirketimizin itibarını zedeleyecek her türlü davranıştan kaçınırız.",
+                    "Sosyal medya dahil olmak üzere tüm mecralarda şirketimizi temsil ettiğimizin bilinciyle hareket ederiz."
+                ]
+            }
+        ],
+        "Implementation": {
+            "Title": "Etik Kuralların Uygulanması ve Bildirim",
+            "Text": "Aksu Mekanik çalışanları, bu etik kurallar çerçevesinde hareket etmekle yükümlüdür. Etik kurallara aykırı davranışlar, gizlilik esasına göre değerlendirilir ve gerekli durumlarda disiplin süreçleri işletilir. Etik ihlallerine tanık olan her çalışan, durumu yönetime veya belirlenmiş etik temsilcisine bildirmekle sorumludur."
+        },
+        "Closing": {
+            "Text": "Aksu Mekanik Yönetimi olarak bu etik kuralların tüm çalışanlarımız tarafından benimsenmesini ve günlük iş hayatında rehber olarak kullanılmasını bekliyoruz. Etik değerlere olan bağlılığımız, başarımızın ve sürdürülebilirliğimizin temelidir.",
+            "Sign": {
+                "Title": "Yönetim Temsilcisi",
+                "Name": "Zafer AKSU",
+                "Date": "Tarih: 24.09.2025"
+            }
+        }
+    }
+}

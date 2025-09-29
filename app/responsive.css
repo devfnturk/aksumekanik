@@ -1,0 +1,77 @@
+@media (min-width:768px) {
+    .round-area label {
+        top: 9px;
+        right: 44px;
+    }
+
+    .projects .aksu-card-item .aksu-card-figure .aksu-card-content h3 {
+        padding-bottom: 50px
+    }
+
+    .projects .aksu-card-item .aksu-card-figure .aksu-card-content p {
+        display: none
+    }
+
+    .projects .productDetail-slider img {
+        height: 400px
+    }
+
+    /* #vLangMobil {
+        right: 130px
+    } */
+}
+
+@media (max-width:768px) {
+    .langWrapper {
+        width: 10%;
+    }
+}
+
+@media (max-width:576px) {
+    #mouse {
+        bottom: 20px;
+        position: absolute;
+        left: 39%
+    }
+
+    .round-area label {
+        top: 2px;
+        right: 60px
+    }
+
+    .our-services .swiper-button-next {
+        right: 40%;
+    }
+
+    .our-services .swiper-button-prev {
+        left: 40%;
+    }
+
+    .projects .aksu-card-item .aksu-card-figure .aksu-card-content h3 {
+        padding-bottom: 50px
+    }
+
+    .projects .aksu-card-item .aksu-card-figure .aksu-card-content p {
+        display: none
+    }
+
+    /* #vLangMobil {
+        right: 30px
+    } */
+}
+
+@media (min-width:992px) {
+    .projects .aksu-card-item .aksu-card-figure .aksu-card-content h3 {
+        padding-bottom: 0
+    }
+
+    .projects .aksu-card-item .aksu-card-figure .aksu-card-content p {
+        display: block
+    }
+}
+
+@media (min-width:1400px) {
+    .projects .productDetail-slider img {
+        height: 450px
+    }
+}

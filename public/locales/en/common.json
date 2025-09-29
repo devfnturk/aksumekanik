@@ -1,0 +1,201 @@
+{
+    "Header": {
+        "Kurumsal": "Corporate",
+        "FaaliyetAlanlari": "Services Area",
+        "Projelerimiz": "Projects",
+        "Markalar": "Brands",
+        "Iletisim": "Contact",
+        "Kataloglar": "Catalogues",
+        "Referanslar": "References"
+    },
+    "Kurumsal": {
+        "Hakkimizda": "About Us",
+        "KaliteCevreISG": "Quality, Environment and OHS Policy",
+        "EtikKurallarimiz": "Code of Ethics",
+        "InsanKaynaklari": "Human Resources",
+        "Referanslar": "References",
+        "BizKimiz": "Who We Are?",
+        "KurumsalParagraf1": "Aksu Mekanik was established in Gebze with many years of experience in the sector with the aim of marketing and Contracting Application of high quality products of brands that have high prestige in the mechanical installation sector and represent advanced technology. With the awareness of how important it is to gain and maintain a reputation in commercial life and in order to provide first class service, we have incorporated many valuable brands in the sector as solution partners and still continues to do so.",
+        "KurumsalParagraf2": "Our aim is to continue to respond to the needs of our valued customers in the best way possible with the quality brands we represent, our customer and human-oriented perspective, our versatile and competitive trade approach and our qualified engineering approach. In order to keep up with today's world where needs and technology are in rapid change, we are always moving forward to be a reliable and respected company in the sector by producing fast and accurate solutions for all customer needs before, during and after sales with our engineering know-how in heating, cooling, plumbing, infrastructure and energy and our team of well-trained experts.",
+        "KurumsalParagraf3": "Our biggest goal is to continue to take place in the sector as your reliable supplier where you can receive high value-added services in the future. Our goal is to be 'the best' with our service understanding open to innovations and our motto of continuous improvement.",
+        "TamamlananProje": "Completed Project",
+        "DevamEdenProje": "Ongoing Project"
+    },
+    "FaaliyetAlanlari": {
+        "PageTitle": "Our Quality is based on Our Experience.",
+        "Text": "Aksu Mekanik offers system solutions for all kinds of building segments in accordance with current legislation and international standards;",
+        "HavalandirmaTesisati": "Ventilation Installation",
+        "IsitmaSogutma": "Heating - Cooling",
+        "DogalgazTesisati": "Natural Gas Installation",
+        "ElektrikOtomasyon": "Electric Automation",
+        "YanginTesisati": "Fire Installation",
+        "SihhiTesisat": "Sanitary Installation"
+    },
+    "Projelerimiz": {
+        "DevamEdenProjelerimiz": "Ongoing Projects",
+        "TamamlananProjelerimiz": "Completed Projects",
+        "Devami": "More",
+        "ProjeDetaylari": "Project Details",
+        "Isveren": "Employer",
+        "Yer": "Location",
+        "Alan": "Area",
+        "ProjeTarihi": "Project Date"
+    },
+    "KatalogVeReferanslar": {
+        "Kataloglar": "Catalogues",
+        "Referanslar": "References"
+    },
+    "Banner": {
+        "TumProjelerimiz": "All Projects",
+        "Sayilarla": "By the numbers",
+        "DetayGor": "See Detail"
+    },
+    "Anasayfa": {
+        "Ozet": "Aksu Mekanik was established in Gebze with many years of experience in the sector in order to market the high quality products of brands that have high prestige in the mechanical installation sector and represent advanced technology and Contracting Application.",
+        "HizmetlerizVeSertifikalarimiz": "Our Services and Certificates",
+        "Hizmetlerimiz": "Our Services",
+        "Sertifikalarimiz": "Our Certificates"
+    },
+    "Iletisim": {
+        "IletisimFormu": {
+            "BizeUlasin": "Contact Us",
+            "IsimSoyisim": "Name Surname",
+            "Eposta": "Email",
+            "Telefon": "Telephone",
+            "Konu": "Subject",
+            "Mesaj": "Message",
+            "MailGonder": "Send Mail",
+            "HataMesaji": "An error occurred while submitting the mail",
+            "BasariliMesaji": "Mail sent successfully",
+            "IsimError": "Name and Surname field is required",
+            "EpostaError": "Email field is required",
+            "EpostaGecersiz": "Invalid Email",
+            "TelefonGecersiz": "The telephone number must start with 05 and have 11 digits",
+            "TelefonError": "Telephone field is required",
+            "MesajError": "Message must be at least 10 characters"
+        },
+        "IletisimBilgileri": {
+            "Adres": "Address",
+            "MerkezOfis": "Head Office",
+            "IletisimNumaralari": "Contact Numbers",
+            "Ofis": "Office",
+            "EmailAdresleri": "Email Addresses"
+        }
+    },
+    "Urunler": {
+        "Urunler": "Products"
+    },
+    "KaliteCevreISG": {
+        "PageTitle": "Quality, Environment and OHS Policy",
+        "Intro": "As Aksu Mekanik, our fundamental principle is to continuously improve the quality of the services we provide to our customers, ensure environmental sustainability, and protect the health and safety of our employees at the highest level.",
+        "KalitePolitikamiz": {
+            "Title": "Our Quality Policy",
+            "Items": {
+                "1": "Prioritizing customer satisfaction and responding to their demands on time and completely,",
+                "2": "Effectively implementing our quality management system with a continuous improvement approach,",
+                "3": "Providing services in compliance with national and international standards, legislation, and legal requirements,",
+                "4": "Supporting continuous training and development activities to enhance the knowledge, skills, and competencies of our employees,",
+                "5": "Committing to a collaborative working approach with our suppliers based on mutual trust and quality focus."
+            }
+        },
+        "CevrePolitikamiz": {
+            "Title": "Our Environmental Policy",
+            "Items": {
+                "1": "Minimizing our environmental impacts by ensuring the efficient use of natural resources during our activities,",
+                "2": "Increasing opportunities for recycling and reuse by reducing our waste,",
+                "3": "Complying with all legal obligations and environmental legislation,",
+                "4": "Continuously reviewing and improving our environmental performance,",
+                "5": "Committing to raising awareness among our employees and business partners on environmental responsibility."
+            }
+        },
+        "ISGPolitikamiz": {
+            "Title": "Our Occupational Health and Safety Policy",
+            "Items": {
+                "1": "Ensuring that all our employees work in a safe and healthy environment,",
+                "2": "Identifying and taking necessary measures against risks to prevent work accidents and occupational diseases,",
+                "3": "Fully complying with legal regulations, directives, and standards,",
+                "4": "Creating a work culture where all our employees are aware of their OHS responsibilities,",
+                "5": "Continuously monitoring and improving our OHS performance."
+            }
+        }
+    },
+    "EtikKurallar": {
+        "PageTitle": "Code of Ethics Policy",
+        "Intro": "At Aksu Mekanik, we are committed to acting with honesty, transparency, fairness, and responsibility in all areas of our operations. The sustainability of the trust placed in us by our employees, business partners, customers, and society depends on our adherence to ethical values.",
+        "Items": [
+            {
+                "Title": "1. Integrity and Reliability",
+                "Details": [
+                    "Integrity and reliability are essential in all our relationships.",
+                    "We fulfill the commitments we make in a timely and complete manner.",
+                    "We act accurately, openly, and completely in information sharing."
+                ]
+            },
+            {
+                "Title": "2. Compliance with Laws and Regulations",
+                "Details": [
+                    "We act in accordance with applicable laws, regulations, and standards in all areas of our activities.",
+                    "We never engage in activities contrary to the law and do not tolerate such behavior."
+                ]
+            },
+            {
+                "Title": "3. Confidentiality and Information Security",
+                "Details": [
+                    "We protect all confidential information belonging to customers, employees, and business partners.",
+                    "We share internal company information only with authorized individuals and for business purposes.",
+                    "We do not use company resources for personal gain."
+                ]
+            },
+            {
+                "Title": "4. Fair and Respectful Behavior",
+                "Details": [
+                    "We provide an equal, fair, and respectful working environment without discrimination among employees.",
+                    "We do not allow discrimination based on race, language, religion, gender, age, or any other difference.",
+                    "We strictly do not tolerate mobbing, harassment, or humiliating behavior in the workplace."
+                ]
+            },
+            {
+                "Title": "5. Avoidance of Conflicts of Interest",
+                "Details": [
+                    "We avoid situations that would create a conflict between our personal interests and the company’s interests.",
+                    "We do not use company resources, our title, or information for personal benefit.",
+                    "We avoid direct business relationships between our family members or close relatives and the company."
+                ]
+            },
+            {
+                "Title": "6. Gifts and Hospitality",
+                "Details": [
+                    "We do not accept gifts, payments, or privileges that may affect our impartiality or create such an impression.",
+                    "We do not provide any benefits to customers, suppliers, or public institutions beyond legal limits."
+                ]
+            },
+            {
+                "Title": "7. Occupational Health, Safety, and Environment",
+                "Details": [
+                    "Ensuring a safe and healthy working environment in the workplace is the responsibility of every employee.",
+                    "We conduct all our activities in line with environmental awareness and sustainability principles."
+                ]
+            },
+            {
+                "Title": "8. Social Responsibility and Reputation",
+                "Details": [
+                    "We respect the values of society and act with social responsibility awareness.",
+                    "We avoid any behavior that could damage the reputation of our company.",
+                    "We act with the awareness that we represent our company across all platforms, including social media."
+                ]
+            }
+        ],
+        "Implementation": {
+            "Title": "Implementation and Reporting",
+            "Text": "Aksu Mekanik employees are obliged to act within the framework of these ethical rules.Behaviors contrary to ethical rules are evaluated on the basis of confidentiality, and disciplinary processes are applied when necessary. Every employee who witnesses an ethical violation is responsible for reporting the situation to management or the designated ethics representative."
+        },
+        "Closing": {
+            "Text": "We expect all our employees to adopt these ethical rules and use them as a guide in their daily business life. Our commitment to ethical values is the foundation of our success and sustainability.",
+            "Sign": {
+                "Title": "Management Representative",
+                "Name": "Zafer AKSU",
+                "Date": "Date: 24.09.2025"
+            }
+        }
+    }
+}
