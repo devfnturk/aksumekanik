@@ -1,1 +1,2 @@
-/admin-panel/* https://aksumekanikadminpanel.netlify.app/:splat  200
+# /admin-panel/* adresine gelen istekleri Next.js tarafından işlenmeden yönlendir.
+/admin-panel/* https://admin-aksumekanik.netlify.app/:splat  200!
