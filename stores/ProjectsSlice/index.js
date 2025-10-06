@@ -12,9 +12,10 @@ const projectsSlice = createSlice({
     initialState: {
         data: [],
         loading: false,
-    error: null,
+        error: null,
         completedCount: 0,
-        incompleteCount: 0
+        incompleteCount: 0,
+        lastFetched: 0
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -26,6 +27,7 @@ const projectsSlice = createSlice({
             .addCase(fetchGetProjects.fulfilled, (state, action) => {
                 state.loading = false;
                 state.data = action.payload;
+                state.lastFetched = Date.now();
 
                 const completed = action.payload.filter((item) => item.isCompleted === true).length;
                 const incomplete = action.payload.filter((item) => item.isCompleted === false).length;

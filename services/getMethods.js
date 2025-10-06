@@ -27,11 +27,17 @@ export const getProjectFields = () =>
 export const getBrands = () =>
     request("/brands", 'GET');
 
+export const getFieldOfActivities = () =>
+    request("/field-of-activities", 'GET');
+
 export const getActivityAreasByBrand = (brandId) =>
     request(`/brand-activity-areas/by-brand/${brandId}`, 'GET');
 
 export const getBrandsByActivityArea = (activityAreaId) =>
-    request(`/brand-activity-areas/${activityAreaId}/brands`, 'GET');
+    request(`/brand-activity-areas/by-field-of-activity/${activityAreaId}`, 'GET');
+
+export const getBrandActivityAreaByFieldOfActivity = (fieldOfActivityId) =>
+    request(`/brand-activity-areas/by-field-of-activity/${fieldOfActivityId}`, 'GET');
 
 export const getProductsByBrandActivityArea = (brandActivityAreaId) =>
     request(`/products/by-brand-activity-area/${brandActivityAreaId}`, 'GET');

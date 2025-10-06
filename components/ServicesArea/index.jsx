@@ -20,7 +20,8 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
     const activityAreasByBrandState = useAppSelector((state) => state.ActivityAreasByBrand);
     const brandsByActivityAreasState = useAppSelector((state) => state.BrandsByActivityArea);
     const activitiesState = useAppSelector((state) => state.Activities);
-    const { data, loading, error } = type === 'brand' ? brandsState : type === 'activityAreasByBrand' ? activityAreasByBrandState : type === 'brandsByActivityArea' ? brandsByActivityAreasState : activitiesState;
+    const fieldOfActivityState = useAppSelector((state) => state.FieldOfActivities);
+    const { data, loading, error } = type === 'brand' ? brandsState : type === 'activityAreasByBrand' ? activityAreasByBrandState : type === 'brandsByActivityArea' ? brandsByActivityAreasState : fieldOfActivityState;
     const { i18n } = useTranslation();
     const language = i18n.language;
 
@@ -40,7 +41,7 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
 
     return (
         <>
-            <BreadCrumbArea url='url(/images/mekanik-uygulamalar-banner.png)' title={type === 'brand' ? t('Header.Markalar') : t('Header.FaaliyetAlanlari')} />
+            <BreadCrumbArea url='url(/images/breadcrumb.jpeg)' title={type === 'brand' ? t('Header.Markalar') : t('Header.FaaliyetAlanlari')} />
             <section className="pt-24 pb-24 bg-[#F4F4F4]">
                 <div className="container mx-auto px-4">
                     <div className="flex justify-center">
@@ -63,6 +64,24 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
                                         imgSrc={imageSrc}
                                         title={language === 'tr' ? item.title : item.enTitle}
                                         content={language === 'tr' ? item.description : item.enDescription}
+                                        imgLeft={index % 2 === 0 ? true : false}
+                                        dataAosOffset={(-800 + (index * 100)).toString()}
+                                        type={type}
+                                        pageTitle={brand}
+                                    />
+                                );
+                            }) : type === 'brandsByActivityArea' ? data?.map((item, index) => {
+                                const imageInfo = item.brands.image?.[0];
+                                const imageData = imageInfo?.imageData;
+                                const imageSrc = decodeImage(imageData || '');
+
+                                return (
+                                    <MechanicalApplicationBox
+                                        key={index}
+                                        id={item.brands[0].id}
+                                        imgSrc={imageSrc}
+                                        title={language === 'tr' ? item.brands[0].title : item.brands[0].enTitle}
+                                        content={language === 'tr' ? item.brands[0].description : item.brands[0].enDescription}
                                         imgLeft={index % 2 === 0 ? true : false}
                                         dataAosOffset={(-800 + (index * 100)).toString()}
                                         type={type}

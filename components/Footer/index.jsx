@@ -1,6 +1,13 @@
+'use client';
 import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+
+    const { i18n } = useTranslation();
+    const { t } = useTranslation();
+    const language = i18n.language;
+
     return (
         <footer className="relative pb-5 bg-white overflow-x-hidden">
             <div className="container mx-auto px-4">
@@ -17,29 +24,20 @@ export default function Footer() {
                             alt="Footer Logo"
                         />
                         <div className="text-sm text-gray-600 mt-4 flex flex-wrap justify-center lg:justify-start gap-2">
-                            <a href="/bilgilendirme/kvkk-aydinlatma-metni.html" className="hover:underline">
-                                KVKK Aydınlatma Metni
+                            <a href={`/documents/KVKK Aydınlatma Metni ${language === 'tr' ? 'Tr' : 'En'}.pdf`} target="_blank" className="hover:underline">
+                                {t('Footer.KVKK')}
                             </a>
                             <span>|</span>
-                            <a
-                                href="https://e-sirket.mkk.com.tr/esir/Dashboard.jsp#/sirketbilgileri/20930"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hover:underline"
-                            >
-                                Bilgi Toplumu Hizmetleri
+                            <a href={`/documents/Ticari Elektronik İleti Açık Rıza Metni ${language === 'tr' ? 'Tr' : 'En'}.pdf`} target="_blank" className="hover:underline">
+                                {t('Footer.TicariİletiAcikRizaMetni')}
                             </a>
                             <span>|</span>
-                            <a href="/bilgilendirme/ticari-ileti-acik-riza-metni.html" className="hover:underline">
-                                Ticari İleti Açık Rıza Metni
+                            <a href={`/documents/Ticari Elektronik İleti Aydınlatma Metni ${language === 'tr' ? 'Tr' : 'En'}.pdf`} target="_blank" className="hover:underline">
+                                {t('Footer.TicariİletiAydinlatmaMetni')}
                             </a>
                             <span>|</span>
-                            <a href="/bilgilendirme/ticari-ileti-aydinlatma-metni.html" className="hover:underline">
-                                Ticari İleti Aydınlatma Metni
-                            </a>
-                            <span>|</span>
-                            <a href="/bilgilendirme/kvkk-ziyaretci-acik-riza-metni.html" className="hover:underline">
-                                KVKK Ziyaretçi Açık Rıza Metni
+                            <a href={`/documents/KVKK Ziyaretçi Açık Rıza Metni ${language === 'tr' ? 'Tr' : 'En'}.pdf`} target="_blank" className="hover:underline">
+                                {t('Footer.KVKKZiyaretciAcikRizaMetni')}
                             </a>
                         </div>
                         <div className="text-sm text-gray-500 mt-2">
@@ -80,7 +78,7 @@ export default function Footer() {
                         </div>
                         <div className="mt-5 pt-5 text-sm text-gray-500">
                             <span>powered by </span>
-                            <a href="https://www.vayes.com.tr/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                            <a href="https://www.linkedin.com/in/devfturk/" target="_blank" rel="noopener noreferrer" className="hover:underline">
                                 @fn(HD)
                             </a>
                         </div>

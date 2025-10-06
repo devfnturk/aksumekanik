@@ -11,7 +11,7 @@ export function CataloguesPageContent() {
     const { data } = useAppSelector((state) => state.Catalogues);
     return (
         <>
-            <BreadCrumbArea url='url(/images/mekanik-uygulamalar-banner.png)' title={t('Header.Kataloglar')} />
+            <BreadCrumbArea url='url(/images/breadcrumb.jpeg)' title={t('Header.Kataloglar')} />
             <section className="pt-24 pb-24 bg-[#F4F4F4]">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
@@ -38,7 +38,7 @@ export function ReferencesPageContent() {
 
     return (
         <>
-            <BreadCrumbArea url='url(/images/mekanik-uygulamalar-banner.png)' title={t('Header.Referanslar')} />
+            <BreadCrumbArea url='url(/images/breadcrumb.jpeg)' title={t('Header.Referanslar')} />
             <section className="pt-24 pb-24 bg-[#F4F4F4]">
                 <div className="container mx-auto px-4">
                     <div className="flex justify-center">

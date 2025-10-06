@@ -72,7 +72,9 @@
             "EpostaGecersiz": "Invalid Email",
             "TelefonGecersiz": "The telephone number must start with 05 and have 11 digits",
             "TelefonError": "Telephone field is required",
-            "MesajError": "Message must be at least 10 characters"
+            "MesajError": "Message must be at least 10 characters",
+            "KvkkError": "Please check the KVKK approval box",
+            "OnayCheckbox": "I consent to the processing of my shared personal data for the purpose of responding to my request and executing contractual processes."
         },
         "IletisimBilgileri": {
             "Adres": "Address",
@@ -197,5 +199,11 @@
                 "Date": "Date: 24.09.2025"
             }
         }
+    },
+    "Footer": {
+        "KVKK": "PDPL Information Text",
+        "TicariİletiAcikRizaMetni": "Commercial Communication Explicit Consent Text",
+        "TicariİletiAydinlatmaMetni": "Commercial Communication Information Text",
+        "KVKKZiyaretciAcikRizaMetni": "PDPL Visitor Consent Statement"
     }
 }

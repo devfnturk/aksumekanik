@@ -23,6 +23,7 @@ import activityAreasByBrandReducer from './ActivityAreasByBrand';
 import brandsByActivityAreaReducer from './BrandsByActivityArea';
 import productsReducer from './Products';
 import cataloguesReducer from './CataloguesSlice';
+import fieldOfActivitiesReducer from './FieldOfActivitiesSlice';
 
 const persistConfig = {
     key: 'root',
@@ -41,7 +42,8 @@ const rootReducer = combineReducers({
     Brands: brandsReducer,
     ActivityAreasByBrand: activityAreasByBrandReducer,
     BrandsByActivityArea: brandsByActivityAreaReducer,
-    Products: productsReducer
+    Products: productsReducer,
+    FieldOfActivities: fieldOfActivitiesReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

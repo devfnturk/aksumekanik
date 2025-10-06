@@ -1,6 +1,6 @@
 'use client';
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { fetchGetProductsByBrandActivityArea, fetchGetProductsByBrandId } from "@/stores/Products";
+import { fetchGetBrandActivityAreaByFieldOfActivity, fetchGetProductsByBrandActivityArea, fetchGetProductsByBrandId } from "@/stores/Products";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import ProductBox from "./ProductBox";
@@ -17,7 +17,19 @@ const Products = ({ brand, product, brandActivityArea, parent }) => {
     const { productsByBrandId, productsByBrandActivityArea, loading, error } = useAppSelector((state) => state.Products);
 
     useEffect(() => {
-        if (brandActivityArea) dispatch(fetchGetProductsByBrandActivityArea(brandActivityArea));
+        dispatch(fetchGetBrandActivityAreaByFieldOfActivity(brandActivityArea))
+            .unwrap()
+            .then((res) => {
+                const matchedItem = res.find(item =>
+                    item.brands?.some(b => b.id === brand)
+                );
+
+                if (matchedItem) {
+                    dispatch(fetchGetProductsByBrandActivityArea(matchedItem.id));
+                }
+            })
+            .catch((err) => console.error('BrandActivityArea fetch failed:', err));
+
         if (brand) dispatch(fetchGetProductsByBrandId(brand))
     }, []);
 
@@ -33,7 +45,7 @@ const Products = ({ brand, product, brandActivityArea, parent }) => {
 
     return (
         <>
-            <BreadCrumbArea url='url(/images/mekanik-uygulamalar-banner.png)' title={t('Urunler.Urunler')} />
+            <BreadCrumbArea url='url(/images/breadcrumb.jpeg)' title={t('Urunler.Urunler')} />
             <section className="py-16 bg-[#F4F4F4]">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-4 gap-4">

@@ -7,17 +7,17 @@ import UsWithNumbers from "@/components/UsWithNumbers";
 export default function Home() {
     return (
         <>
-            {/* <main className="overflow-hidden"> */}
-            {/* Home PageSlider */}
-            {/* <section className="slider relative">
+            <main className="overflow-hidden">
+                {/* Home PageSlider */}
+                <section className="slider relative">
                     <HomePageSlider />
                     <UsWithNumbers />
                 </section>
                 <CorporateText />
                 <ReferancesSlider />
                 <OurServices />
-            </main> */}
-            <main style={{
+            </main>
+            {/* <main style={{
                 minHeight: '100vh',
                 background: 'var(--background)',
                 color: 'var(--aksu-primary)',
@@ -45,7 +45,7 @@ export default function Home() {
                     <p style={{ color: 'var(--aksu-primary)', fontSize: '1.1rem', marginBottom: '1.5rem' }}>Web sitemiz şu anda kısa bir bakımda.<br />En kısa sürede tekrar hizmetinizde olacağız.</p>
                     <div style={{ color: 'var(--aksu-blue)', fontWeight: 500, fontSize: '1rem' }}>Anlayışınız için teşekkürler.</div>
                 </div>
-            </main>
+            </main> */}
         </>
     );
 }

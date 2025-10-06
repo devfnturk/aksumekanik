@@ -72,7 +72,9 @@
             "EpostaGecersiz": "Geçersiz Eposta",
             "TelefonGecersiz": "Telefon numarası 05 ile başlamalı ve 11 haneli olmalıdır",
             "TelefonError": "Telefon alanı zorunludur",
-            "MesajError": "Mesaj en az 10 karakter olmalı"
+            "MesajError": "Mesaj en az 10 karakter olmalı",
+            "KvkkError": "Lütfen KVKK onay kutusunu işaretleyin",
+            "OnayCheckbox": "Paylaştığım kişisel verilerimin, talebimin yanıtlanması ve sözleşme süreçlerinin yürütülmesi amacıyla işlenmesine onay veriyorum."
         },
         "IletisimBilgileri": {
             "Adres": "Adres",
@@ -197,5 +199,11 @@
                 "Date": "Tarih: 24.09.2025"
             }
         }
+    },
+    "Footer": {
+        "KVKK": "KVKK Aydınlatma Metni",
+        "TicariİletiAcikRizaMetni": "Ticari İleti Açık Rıza Metni",
+        "TicariİletiAydinlatmaMetni": "Ticari İleti Aydınlatma Metni",
+        "KVKKZiyaretciAcikRizaMetni": "KVKK Ziyaretçi Açık Rıza Metni"
     }
 }

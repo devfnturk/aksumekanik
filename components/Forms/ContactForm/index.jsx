@@ -14,6 +14,8 @@ export default function ContactForm() {
 
     const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
+    const { i18n } = useTranslation();
+    const language = i18n.language;
 
     const formik = useFormik({
         initialValues: {
@@ -22,6 +24,7 @@ export default function ContactForm() {
             phoneNumber: '',
             subject: '',
             message: '',
+            approved: false
         },
         validationSchema: Yup.object({
             name: Yup.string().required(t('Iletisim.IletisimFormu.IsimError')),
@@ -31,7 +34,7 @@ export default function ContactForm() {
                 .required(t('Iletisim.IletisimFormu.TelefonError')),
             subject: Yup.string(),
             message: Yup.string().min(10, t('Iletisim.IletisimFormu.MesajError')),
-            // kvkk: Yup.boolean().oneOf([true], 'KVKK metnini onaylamalısınız'),
+            approved: Yup.boolean().oneOf([true], t('Iletisim.IletisimFormu.KvkkError'))
         }),
         onSubmit: async (values, { resetForm }) => {
             try {
@@ -146,24 +149,23 @@ export default function ContactForm() {
                             )}
                         </div>
 
-                        {/* <div className="mt-4">
-                        <label className="flex items-start gap-2">
-                            <input
-                                type="checkbox"
-                                name="kvkk"
-                                onChange={formik.handleChange}
-                                checked={formik.values.kvkk}
-                                className="mt-1"
-                            />
-                            <span>
-                                <span className="underline font-bold">KVKK okudum,</span>
-                                <span> kabul ediyorum.</span>
-                            </span>
-                        </label>
-                        {formik.touched.kvkk && formik.errors.kvkk && (
-                            <div className="text-red-500 text-sm mt-1">{formik.errors.kvkk}</div>
-                        )}
-                    </div> */}
+                        <div className="mt-4">
+                            <label className="flex items-start gap-2">
+                                <input
+                                    type="checkbox"
+                                    name="approved"
+                                    onChange={formik.handleChange}
+                                    checked={formik.values.approved}
+                                    className="mt-1 accent-[var(--aksu-green)] cursor-pointer"
+                                />
+                                <span className="text-sm">
+                                    <a href={`/documents/Ticari Elektronik İleti Aydınlatma Metni ${language === 'tr' ? 'Tr' : 'En'}.pdf`} target='_blank' className="font-bold underline">{t('Iletisim.IletisimFormu.OnayCheckbox')}</a>
+                                </span>
+                            </label>
+                            {formik.touched.approved && formik.errors.approved && (
+                                <div className="text-red-500 text-sm mt-1">{formik.errors.approved}</div>
+                            )}
+                        </div>
 
                         <div className="mt-4 text-end">
                             <button

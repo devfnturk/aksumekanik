@@ -39,7 +39,7 @@ const Corporate = () => {
 
     return (
         <>
-            <BreadCrumbArea url='url(/images/mekanik-uygulamalar-banner.png)' title={t('Header.Kurumsal')} />
+            <BreadCrumbArea url='url(/images/breadcrumb.jpeg)' title={t('Header.Kurumsal')} />
             <section className="pt-16 pb-16 bg-[#F4F4F4]">
                 <div className="container mx-auto px-4">
                     <CustomBasicAksuTab tabs={tabs} defaultActiveTab="hakkimizda" type='kurumsal' />

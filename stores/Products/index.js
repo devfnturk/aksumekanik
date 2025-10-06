@@ -1,8 +1,9 @@
-import { getProductDetail, getProductsByBrandActivityArea, getProductsByBrandId } from "@/services/getMethods";
+import { getBrandActivityAreaByFieldOfActivity, getProductDetail, getProductsByBrandActivityArea, getProductsByBrandId } from "@/services/getMethods";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
     productsByBrandActivityArea: [],
     productsByBrandId: [],
+    fieldOfActivities: null,
     productDetail: null,
     loading: false,
     error: null,
@@ -20,6 +21,11 @@ export const fetchGetProductsByBrandId = createAsyncThunk('products/fetchGetProd
 
 export const fetchGetProductDetail = createAsyncThunk('products/fetchGetProductDetail', async (productId) => {
     const response = await getProductDetail(productId);
+    return response;
+});
+
+export const fetchGetBrandActivityAreaByFieldOfActivity = createAsyncThunk('products/fetchGetBrandActivityAreaByFieldOfActivity', async (fieldOfActivityId) => {
+    const response = await getBrandActivityAreaByFieldOfActivity(fieldOfActivityId);
     return response;
 });
 
@@ -62,6 +68,19 @@ const productsSlice = createSlice({
                 state.productDetail = action.payload;
             })
             .addCase(fetchGetProductDetail.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message ?? 'Bir hata oluştu';
+            })
+            .addCase(fetchGetBrandActivityAreaByFieldOfActivity.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(fetchGetBrandActivityAreaByFieldOfActivity.fulfilled, (state, action) => {
+                state.loading = false;
+                console.log(action.payload);
+                state.fieldOfActivities = action.payload;
+            })
+            .addCase(fetchGetBrandActivityAreaByFieldOfActivity.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message ?? 'Bir hata oluştu';
             });

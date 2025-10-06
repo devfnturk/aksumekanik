@@ -12,7 +12,8 @@ const referencesSlice = createSlice({
     initialState: {
         data: [],
         loading: false,
-    error: null,
+        error: null,
+        lastFetched: 0
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -24,6 +25,7 @@ const referencesSlice = createSlice({
             .addCase(fetchGetReferences.fulfilled, (state, action) => {
                 state.loading = false;
                 state.data = action.payload;
+                state.lastFetched = Date.now();
             })
             .addCase(fetchGetReferences.rejected, (state, action) => {
                 state.loading = false;

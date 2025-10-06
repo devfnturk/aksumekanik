@@ -75,6 +75,31 @@ body {
     left: 50%
 }
 
+.product-swiper .swiper-slide {
+    width: 100% !important;
+}
+
+.header-item-scrollbar {
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: var(--aksu-green) transparent;
+    /* Firefox (thumb, track) */
+}
+
+.header-item-scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.header-item-scrollbar::-webkit-scrollbar-track {
+    background: transparent !important;
+    border-radius: 4px;
+}
+
+.header-item-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--aksu-green);
+    border-radius: 4px;
+}
+
 /* Header */
 header nav ul li a {
     font-size: .875rem;

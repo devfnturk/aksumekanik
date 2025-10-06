@@ -1,14 +1,14 @@
-import { getCatalogues } from "@/services/getMethods";
+import { getFieldOfActivities } from "@/services/getMethods";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const fetchGetCatalogues = createAsyncThunk('catalogues/fetchGetCatalogues', async () => {
-    const response = await getCatalogues();
+export const fetchGetFieldOfActivities = createAsyncThunk('brands/fetchGetFieldOfActivities', async () => {
+    const response = await getFieldOfActivities();
 
     return response;
 });
 
-const cataloguesSlice = createSlice({
-    name: 'cataloguesSlice',
+const fieldOfActivitiesSlice = createSlice({
+    name: 'fieldOfActivitiesSlice',
     initialState: {
         data: [],
         loading: false,
@@ -18,20 +18,20 @@ const cataloguesSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchGetCatalogues.pending, (state) => {
+            .addCase(fetchGetFieldOfActivities.pending, (state) => {
                 state.loading = true;
                 state.error = null;
             })
-            .addCase(fetchGetCatalogues.fulfilled, (state, action) => {
+            .addCase(fetchGetFieldOfActivities.fulfilled, (state, action) => {
                 state.loading = false;
                 state.data = action.payload;
                 state.lastFetched = Date.now();
             })
-            .addCase(fetchGetCatalogues.rejected, (state, action) => {
+            .addCase(fetchGetFieldOfActivities.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message ?? 'Bir hata oluştu';
             });
     },
 });
 
-export default cataloguesSlice.reducer;
+export default fieldOfActivitiesSlice.reducer;

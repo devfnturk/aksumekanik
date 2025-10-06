@@ -8,6 +8,12 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LoadingScreen from '@/components/LoadingScreen';
 import { CataloguesBox } from "@/components/Boxes";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+import { EffectFade } from "swiper/modules";
 
 const ProductDetail = ({ productId }) => {
 
@@ -35,11 +41,11 @@ const ProductDetail = ({ productId }) => {
         <>
             {!loading && productDetail ? (
                 <>
-                    <BreadCrumbArea url='url(/images/mekanik-uygulamalar-banner.png)' title={productDetail ? (language === 'tr' ? productDetail.title : productDetail.enTitle) : ''} />
+                    <BreadCrumbArea url='url(/images/breadcrumb.jpeg)' title={productDetail ? (language === 'tr' ? productDetail.title : productDetail.enTitle) : ''} />
                     <section className="py-16 bg-[#F4F4F4]">
                         <div className="container mx-auto px-4">
                             <div className="grid grid-cols-2 gap-4">
-                                <div className="col-span-2 mx-auto md:mx-0 md:col-span-1 order-2 md:order-1" data-aos="fade-up" data-aos-duration="2000" data-aos-offset="-200">
+                                <div className="col-span-2 md:col-span-1 mx-auto md:mx-0 md:order-1" data-aos="fade-up" data-aos-duration="2000" data-aos-offset="-200">
                                     <div>{language === 'tr' ? productDetail?.description : productDetail?.enDescription}</div>
                                     {productDetail.certificates.length > 0 && (
                                         <div className="my-6 flex gap-3">
@@ -49,8 +55,39 @@ const ProductDetail = ({ productId }) => {
                                         </div>
                                     )}
                                 </div>
-                                <div className="col-span-2 mx-auto md:mx-0 md:col-span-1 order-1 md:order-2" data-aos="fade-down" data-aos-duration="2000" data-aos-offset="-200">
-                                    <Image className="float-end" src={decodeImage(productDetail?.images[0].imageData)} width={200} height={200} alt={productDetail.images[0].name} />
+                                <div className="col-span-2 md:col-span-1 mx-auto md:mx-0 md:order-2" data-aos="fade-down" data-aos-duration="2000" data-aos-offset="-200">
+                                    {productDetail?.images.length > 1 ? (
+                                        <>
+                                            <Swiper
+                                                modules={[Autoplay, EffectFade]}
+                                                effect="fade"
+                                                speed={1000}
+                                                autoplay={{ delay: 1500, disableOnInteraction: false }}
+                                                direction="horizontal"
+                                                loop
+                                                className="product-swiper w-full min-h-[300px]"
+                                            >
+                                                {productDetail.images.map((image, index) => (
+                                                    <SwiperSlide key={index} className="!w-full !h-auto">
+                                                        <img
+                                                            className="w-full h-auto object-contain"
+                                                            src={decodeImage(image.imageData)}
+                                                            alt={image.name}
+                                                        />
+                                                    </SwiperSlide>
+                                                ))}
+                                            </Swiper>
+                                        </>
+                                    ) : (
+                                        <Image
+                                            className="-wfull h-auto object-contain"
+                                            src={decodeImage(productDetail?.images[0].imageData)}
+                                            width={1200}
+                                            height={800}
+                                            alt={productDetail.images[0].name}
+                                            layout="responsive"
+                                        />
+                                    )}
                                 </div>
                                 {
                                     productDetail.catalogLink && (

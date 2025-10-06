@@ -3,7 +3,7 @@ import Products from "@/components/Products";
 const ProductsByBrandActivityAreaPage = ({ params }) => {
     return (
         <main>
-            <Products brandActivityArea={params.activityArea} brand={params.activityArea} parent="activityArea" />
+            <Products brandActivityArea={params.activityArea} brand={params.activityAreaBrand} parent="activityArea" />
         </main>
     );
 }

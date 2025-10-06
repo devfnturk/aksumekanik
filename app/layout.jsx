@@ -38,11 +38,11 @@ export default function RootLayout({
                 <ReduxProvider>
                     <GlobalFetchProvider>
                         <I18nProvider>
-                            {/* <Header /> */}
+                            <Header />
                             {children}
-                            {/* <WhatsappAnimation /> */}
-                            {/* <ScrollToTopButton /> */}
-                            {/* <Footer /> */}
+                            <WhatsappAnimation />
+                            <ScrollToTopButton />
+                            <Footer />
                         </I18nProvider>
                     </GlobalFetchProvider>
                 </ReduxProvider>

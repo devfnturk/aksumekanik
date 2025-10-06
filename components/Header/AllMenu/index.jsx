@@ -15,6 +15,7 @@ export default function AllMenu({ isScrolled }) {
     const language = i18n.language;
     const activities = useAppSelector(state => state.Activities.data);
     const brands = useAppSelector(state => state.Brands.data);
+    const fieldOfActivities = useAppSelector(state => state.FieldOfActivities.data);
 
     useEffect(() => {
         setIsOpen(false);
@@ -54,8 +55,8 @@ export default function AllMenu({ isScrolled }) {
                         </div>
                         <div>
                             <Link href='/faaliyet-alanlari' className="text-base lg:text-lg font-bold text-[var(--aksu-green)]">{t('Header.FaaliyetAlanlari')}</Link>
-                            <ul className="space-y-2">
-                                {activities?.filter((item) => item.isActive).sort((a, b) => a.order - b.order).map((item, index) => (
+                            <ul className="space-y-2 max-h-64 overflow-y-auto header-item-scrollbar">
+                                {fieldOfActivities?.filter((item) => item.isActive).sort((a, b) => a.order - b.order).map((item, index) => (
                                     <li key={index}><Link href={`/faaliyet-alanlari/#${item.id}`}>{language === 'tr' ? item.title : item.enTitle}</Link></li>
                                 ))}
                             </ul>
@@ -69,11 +70,7 @@ export default function AllMenu({ isScrolled }) {
                         </div>
                         <div>
                             <Link href={'/markalar'} className="text-base lg:text-lg font-bold text-[var(--aksu-green)]">{t('Header.Markalar')}</Link>
-                            <ul className="space-y-2">
-                                {/* <li><Link href='#'>POİNT</Link></li>
-                                <li><Link href='#'>AİRCOL</Link></li>
-                                <li><Link href='#'>ISIDEM</Link></li>
-                                <li><Link href='#'>BLAUBERG</Link></li> */}
+                            <ul className="space-y-2 max-h-64 overflow-y-auto header-item-scrollbar">
                                 {brands?.filter((item) => item.isActive).map((item, index) => (
                                     <li key={index}><Link href={`/markalar/#${item.id}`}>{language === 'tr' ? item.title : item.enTitle}</Link></li>
                                 ))}
@@ -84,10 +81,6 @@ export default function AllMenu({ isScrolled }) {
                         </div>
                         <div>
                             <Link href={'/kataloglar'} className="text-base lg:text-lg font-bold text-[var(--aksu-green)]">{t('Header.Kataloglar')}</Link>
-                            {/* <ul className="space-y-2">
-                                <li><Link href='/kataloglar'>{t('KatalogVeReferanslar.Kataloglar')}</Link></li>
-                                <li><Link href='/referanslar'>{t('KatalogVeReferanslar.Referanslar')}</Link></li>
-                            </ul> */}
                         </div>
                     </nav>
                 </div>

@@ -33,7 +33,7 @@ export default function Contact() {
 
     return (
         <>
-            <BreadCrumbArea url='url(/images/contact-us-banner.jpg)' title={t('Header.Iletisim')} />
+            <BreadCrumbArea url='url(/images/breadcrumb.jpeg)' title={t('Header.Iletisim')} />
             <section
                 className="pt-[80px] pb-[100px]"
                 style={{ backgroundImage: "url('/images/contact-us-map.jpg')" }}

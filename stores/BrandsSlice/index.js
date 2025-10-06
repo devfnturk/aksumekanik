@@ -13,6 +13,7 @@ const brandsSlice = createSlice({
         data: [],
         loading: false,
         error: null,
+        lastFetched: 0
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -24,6 +25,7 @@ const brandsSlice = createSlice({
             .addCase(fetchGetBrands.fulfilled, (state, action) => {
                 state.loading = false;
                 state.data = action.payload;
+                state.lastFetched = Date.now();
             })
             .addCase(fetchGetBrands.rejected, (state, action) => {
                 state.loading = false;

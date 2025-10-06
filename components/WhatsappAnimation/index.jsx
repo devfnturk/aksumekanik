@@ -8,7 +8,7 @@ export function WhatsappAnimation() {
 
     return (
         <>
-            <Link href='https://wa.me/905075135929' className='fixed bottom-20 right-6 z-50' target="_blank">
+            <Link href='https://wa.me/905330174898' className='fixed bottom-20 right-6 z-50' target="_blank">
                 <Image src='/images/whatsappAnimation.gif' alt='Whatsapp...' width={80} height={80} />
             </Link>
         </>
