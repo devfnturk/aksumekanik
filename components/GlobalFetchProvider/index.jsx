@@ -30,8 +30,6 @@ export default function GlobalFetchProvider({ children }) {
         if (persistState?.rehydrated) {
             setRehydrated(true);
         }
-        console.log('Persist state:', persistState);
-        console.log('Rehydrated:', rehydrated);
     }, [persistState]);
 
     const brandsLoading = useAppSelector(state => state.Brands.loading);
@@ -40,30 +38,37 @@ export default function GlobalFetchProvider({ children }) {
     const referencesLoading = useAppSelector(state => state.References.loading);
     const fieldOfActivitiesLoading = useAppSelector(state => state.FieldOfActivities.loading);
 
+    const brands = useAppSelector(state => state.Brands.data);
+    const activities = useAppSelector(state => state.Activities.data);
+    const projects = useAppSelector(state => state.Projects.data);
+    const references = useAppSelector(state => state.References.data);
+    const catalogues = useAppSelector(state => state.Catalogues.data);
+    const fieldOfActivities = useAppSelector(state => state.FieldOfActivities.data);
+
     useEffect(() => {
         if (!rehydrated) return; // persist bitmeden fetch başlatma
 
-        if (shouldFetch('Brands')) {
+        if (shouldFetch('Brands') || !brands || brands.length === 0) {
             dispatch(fetchGetBrands()).then(() => updateLastFetched('Brands'));
         }
-        if (shouldFetch('Activities')) {
+        if (shouldFetch('Activities') || !activities || activities.length === 0) {
             dispatch(fetchGetActivities()).then(() => updateLastFetched('Activities'));
         }
-        if (shouldFetch('Projects')) {
+        if (shouldFetch('Projects') || !projects || projects.length === 0) {
             dispatch(fetchGetProjects()).then(() => updateLastFetched('Projects'));
         }
-        if (shouldFetch('References')) {
+        if (shouldFetch('References') || !references || references.length === 0) {
             dispatch(fetchGetReferences()).then(() => updateLastFetched('References'));
         }
-        if (shouldFetch('Catalogues')) {
+        if (shouldFetch('Catalogues') || !catalogues || catalogues.length === 0) {
             dispatch(fetchGetCatalogues()).then(() => updateLastFetched('Catalogues'));
         }
-        if (shouldFetch('FieldOfActivities')) {
+        if (shouldFetch('FieldOfActivities') || !fieldOfActivities || fieldOfActivities.length === 0) {
             dispatch(fetchGetFieldOfActivities()).then(() => updateLastFetched('FieldOfActivities'));
         }
     }, [dispatch, rehydrated]);
 
-    if (!rehydrated && ( brandsLoading || activitiesLoading || projectsLoading || referencesLoading || fieldOfActivitiesLoading)) {
+    if (!rehydrated && (brandsLoading || activitiesLoading || projectsLoading || referencesLoading || fieldOfActivitiesLoading)) {
         return <LoadingScreen />;
     }
 

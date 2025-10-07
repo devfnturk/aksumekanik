@@ -29,11 +29,18 @@ const persistConfig = {
     key: 'root',
     storage,
     whitelist: [
-        'Brands',
-        'Activities',
-        'Projects',
+        'Banners',
         'References',
         'Catalogues',
+        'Activities',
+        'Communications',
+        'Data',
+        'Projects',
+        'ProjectFields',
+        'Brands',
+        'ActivityAreasByBrand',
+        'BrandsByActivityArea',
+        'Products',
         'FieldOfActivities'
     ],
 };

@@ -11,6 +11,7 @@ import { fetchGetBanners } from "@/stores/BannerSlice";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { useTranslation } from 'react-i18next';
 import { decodeImage } from "@/services/functions";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 
 export default function HomePageSlider() {
 
@@ -19,6 +20,7 @@ export default function HomePageSlider() {
     const { i18n } = useTranslation();
     const { t } = useTranslation();
     const language = i18n.language;
+    const windowWidth = useWindowWidth();
 
     useEffect(() => {
         dispatch(fetchGetBanners())
@@ -40,14 +42,16 @@ export default function HomePageSlider() {
             loop
             className="mySwiper w-full h-screen max-h-[1600px]"
         >
-            <SwiperSlide>
-                <div className="hidden lg:block relative w-full h-screen bg-cover bg-center bg-no-repeat overflow-hidden bg-blend-multiply bg-[rgba(0, 0, 0, .7)] before:absolute before:bg-[#0000006b] before:w-full before:h-full before:z-10 before:content-['']">
-                    <div className="h-full w-full z-0 absolute overflow-hidden inset-0 pointer-events-none bg-cover bg-no-repeat bg-center">
-                        <video src={'/images/sliderVideo.mp4'} autoPlay muted loop
-                            className="top-1/2 left-1/2 transform translate-y-[-50%] translate-x-[-50%] absolute opacity-[1] w-[2105px] h-[1184.06px]" />
+            {windowWidth > 1024 && (
+                <SwiperSlide>
+                    <div className="block relative w-full h-screen bg-cover bg-center bg-no-repeat overflow-hidden bg-blend-multiply bg-[rgba(0, 0, 0, .7)] before:absolute before:bg-[#0000006b] before:w-full before:h-full before:z-10 before:content-['']">
+                        <div className="h-full w-full z-0 absolute overflow-hidden inset-0 pointer-events-none bg-cover bg-no-repeat bg-center">
+                            <video src={'/images/sliderVideo.mp4'} autoPlay muted loop
+                                className="top-1/2 left-1/2 transform translate-y-[-50%] translate-x-[-50%] absolute opacity-[1] w-[2105px] h-[1184.06px]" />
+                        </div>
                     </div>
-                </div>
-            </SwiperSlide>
+                </SwiperSlide>
+            )}
             {data?.filter((slide) => slide.isActive).map((slide) => {
                 const imageInfo = slide.image?.[0];
                 const imageData = imageInfo?.imageData;

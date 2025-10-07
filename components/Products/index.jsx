@@ -17,20 +17,21 @@ const Products = ({ brand, product, brandActivityArea, parent }) => {
     const { productsByBrandId, productsByBrandActivityArea, loading, error } = useAppSelector((state) => state.Products);
 
     useEffect(() => {
-        dispatch(fetchGetBrandActivityAreaByFieldOfActivity(brandActivityArea))
-            .unwrap()
-            .then((res) => {
-                const matchedItem = res.find(item =>
-                    item.brands?.some(b => b.id === brand)
-                );
+        if (brandActivityArea && parent === 'activityArea') {
+            dispatch(fetchGetBrandActivityAreaByFieldOfActivity(brandActivityArea))
+                .unwrap()
+                .then((res) => {
+                    const matchedItem = res.find(item =>
+                        item.brands?.some(b => b.id === brand)
+                    );
 
-                if (matchedItem) {
-                    dispatch(fetchGetProductsByBrandActivityArea(matchedItem.id));
-                }
-            })
-            .catch((err) => console.error('BrandActivityArea fetch failed:', err));
-
-        if (brand) dispatch(fetchGetProductsByBrandId(brand))
+                    if (matchedItem) {
+                        dispatch(fetchGetProductsByBrandActivityArea(matchedItem.id));
+                    }
+                })
+                .catch((err) => console.error('BrandActivityArea fetch failed:', err));
+        }
+        if (brand && parent === 'brand') dispatch(fetchGetProductsByBrandId(brand))
     }, []);
 
     if (loading) {
