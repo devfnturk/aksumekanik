@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import { ScrollToTopButton } from "@/components/Buttons";
 import I18nProvider from "@/components/i18nProvider";
 import ReduxProvider from "@/components/ReduxProvider";
-import GlobalFetchProvider from '@/components/GlobalFetchProvider';
 import { WhatsappAnimation } from "@/components/WhatsappAnimation";
 
 const geistSans = Geist({
@@ -36,15 +35,13 @@ export default function RootLayout({
                 className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
             >
                 <ReduxProvider>
-                    <GlobalFetchProvider>
-                        <I18nProvider>
-                            <Header />
-                            {children}
-                            <WhatsappAnimation />
-                            <ScrollToTopButton />
-                            <Footer />
-                        </I18nProvider>
-                    </GlobalFetchProvider>
+                    <I18nProvider>
+                        <Header />
+                        {children}
+                        <WhatsappAnimation />
+                        <ScrollToTopButton />
+                        <Footer />
+                    </I18nProvider>
                 </ReduxProvider>
             </body>
         </html>

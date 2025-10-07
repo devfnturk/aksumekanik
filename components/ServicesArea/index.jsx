@@ -65,7 +65,7 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
                                         title={language === 'tr' ? item.title : item.enTitle}
                                         content={language === 'tr' ? item.description : item.enDescription}
                                         imgLeft={index % 2 === 0 ? true : false}
-                                        dataAosOffset={(-800 + (index * 100)).toString()}
+                                        dataAosOffset={((index * 100) % 500).toString()}
                                         type={type}
                                         pageTitle={brand}
                                     />
@@ -83,7 +83,7 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
                                         title={language === 'tr' ? item.brands[0].title : item.brands[0].enTitle}
                                         content={language === 'tr' ? item.brands[0].description : item.brands[0].enDescription}
                                         imgLeft={index % 2 === 0 ? true : false}
-                                        dataAosOffset={(-800 + (index * 100)).toString()}
+                                        dataAosOffset={((index * 100) % 500).toString()}
                                         type={type}
                                         pageTitle={brand}
                                     />
@@ -101,7 +101,7 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
                                         title={language === 'tr' ? item.title : item.enTitle}
                                         content={language === 'tr' ? item.description : item.enDescription}
                                         imgLeft={index % 2 === 0 ? true : false}
-                                        dataAosOffset={(-800 + (index * 100)).toString()}
+                                        dataAosOffset={((index * 100) % 500).toString()}
                                         type={type}
                                         pageTitle={brand}
                                     />

@@ -1,23 +1,38 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { fetchGetBrands } from '@/stores/BrandsSlice';
 import { fetchGetActivities } from '@/stores/ActivitiesSlice';
 import { fetchGetProjects } from '@/stores/ProjectsSlice';
 import { fetchGetReferences } from '@/stores/ReferencesSlice';
-import LoadingScreen from '@/components/LoadingScreen';
 import { fetchGetCatalogues } from '@/stores/CataloguesSlice';
 import { fetchGetFieldOfActivities } from '../../stores/FieldOfActivitiesSlice';
+import LoadingScreen from '@/components/LoadingScreen';
+
+const THIRTY_MINUTES = 30 * 60 * 1000;
+
+function shouldFetch(key) {
+    const lastFetched = Number(localStorage.getItem(key)) || 0;
+    return Date.now() - lastFetched > THIRTY_MINUTES;
+}
+
+function updateLastFetched(key) {
+    localStorage.setItem(key, Date.now().toString());
+}
 
 export default function GlobalFetchProvider({ children }) {
     const dispatch = useAppDispatch();
+    const [rehydrated, setRehydrated] = useState(false);
 
-    const brands = useAppSelector(state => state.Brands.data);
-    const activities = useAppSelector(state => state.Activities.data);
-    const projects = useAppSelector(state => state.Projects.data);
-    const references = useAppSelector(state => state.References.data);
-    const catalogues = useAppSelector(state => state.Catalogues.data);
-    const fieldOfActivities = useAppSelector(state => state.FieldOfActivities.data);
+    // redux persist rehydration kontrolü
+    const persistState = useAppSelector(state => state._persist);
+    useEffect(() => {
+        if (persistState?.rehydrated) {
+            setRehydrated(true);
+        }
+        console.log('Persist state:', persistState);
+        console.log('Rehydrated:', rehydrated);
+    }, [persistState]);
 
     const brandsLoading = useAppSelector(state => state.Brands.loading);
     const activitiesLoading = useAppSelector(state => state.Activities.loading);
@@ -25,57 +40,32 @@ export default function GlobalFetchProvider({ children }) {
     const referencesLoading = useAppSelector(state => state.References.loading);
     const fieldOfActivitiesLoading = useAppSelector(state => state.FieldOfActivities.loading);
 
-    const brandsLastFetched = useAppSelector(state => state.Brands.lastFetched);
-    const activitiesLastFetched = useAppSelector(state => state.Activities.lastFetched);
-    const projectsLastFetched = useAppSelector(state => state.Projects.lastFetched);
-    const referencesLastFetched = useAppSelector(state => state.References.lastFetched);
-    const cataloguesLastFetched = useAppSelector(state => state.Catalogues.lastFetched);
-    const fieldOfActivitiesLastFetched = useAppSelector(state => state.FieldOfActivities.lastFetched);
-
     useEffect(() => {
-        const now = Date.now();
-        const THIRTY_MINUTES = 30 * 60 * 1000;
+        if (!rehydrated) return; // persist bitmeden fetch başlatma
 
-        if (!brands?.length || now - brandsLastFetched > THIRTY_MINUTES) {
-            dispatch(fetchGetBrands());
+        if (shouldFetch('Brands')) {
+            dispatch(fetchGetBrands()).then(() => updateLastFetched('Brands'));
         }
+        if (shouldFetch('Activities')) {
+            dispatch(fetchGetActivities()).then(() => updateLastFetched('Activities'));
+        }
+        if (shouldFetch('Projects')) {
+            dispatch(fetchGetProjects()).then(() => updateLastFetched('Projects'));
+        }
+        if (shouldFetch('References')) {
+            dispatch(fetchGetReferences()).then(() => updateLastFetched('References'));
+        }
+        if (shouldFetch('Catalogues')) {
+            dispatch(fetchGetCatalogues()).then(() => updateLastFetched('Catalogues'));
+        }
+        if (shouldFetch('FieldOfActivities')) {
+            dispatch(fetchGetFieldOfActivities()).then(() => updateLastFetched('FieldOfActivities'));
+        }
+    }, [dispatch, rehydrated]);
 
-        if (!activities?.length || now - activitiesLastFetched > THIRTY_MINUTES) {
-            dispatch(fetchGetActivities());
-        }
-
-        if (!projects?.length || now - projectsLastFetched > THIRTY_MINUTES) {
-            dispatch(fetchGetProjects());
-        }
-
-        if (!references?.length || now - referencesLastFetched > THIRTY_MINUTES) {
-            dispatch(fetchGetReferences());
-        }
-
-        if (!catalogues?.length || now - cataloguesLastFetched > THIRTY_MINUTES) {
-            dispatch(fetchGetCatalogues());
-        }
-
-        if (!fieldOfActivities?.length || now - fieldOfActivitiesLastFetched > THIRTY_MINUTES) {
-            dispatch(fetchGetFieldOfActivities());
-        }
-    }, [
-        dispatch,
-        brands,
-        activities,
-        projects,
-        references,
-        catalogues,
-        fieldOfActivities,
-        brandsLastFetched,
-        activitiesLastFetched,
-        projectsLastFetched,
-        referencesLastFetched,
-        cataloguesLastFetched,
-        fieldOfActivitiesLastFetched
-    ]);
-    if (brandsLoading || activitiesLoading || projectsLoading || referencesLoading || fieldOfActivitiesLoading) {
+    if (!rehydrated && ( brandsLoading || activitiesLoading || projectsLoading || referencesLoading || fieldOfActivitiesLoading)) {
         return <LoadingScreen />;
     }
+
     return <>{children}</>;
-} 
+}

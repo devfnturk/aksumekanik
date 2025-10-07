@@ -28,6 +28,14 @@ import fieldOfActivitiesReducer from './FieldOfActivitiesSlice';
 const persistConfig = {
     key: 'root',
     storage,
+    whitelist: [
+        'Brands',
+        'Activities',
+        'Projects',
+        'References',
+        'Catalogues',
+        'FieldOfActivities'
+    ],
 };
 
 const rootReducer = combineReducers({
