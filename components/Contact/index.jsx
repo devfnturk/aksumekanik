@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { fetchGetCommunications } from '@/stores/CommunicationsSlice';
 import LoadingScreen from '@/components/LoadingScreen';
+import ContentNotFound from '../ContentNotFound';
 
 export default function Contact() {
 
@@ -24,12 +25,8 @@ export default function Contact() {
     if (loading) {
         return <LoadingScreen />;
     }
-    if (error) {
-        return <div style={{ color: 'red', textAlign: 'center', margin: '2rem' }}>{error}</div>;
-    }
-    if (!data || !data[0]) {
-        return <div style={{ color: 'gray', textAlign: 'center', margin: '2rem' }}>İletişim bilgileri bulunamadı.</div>;
-    }
+    if (error) return <ContentNotFound description={error} />;
+    if (!data || !data[0]) return <ContentNotFound />;
 
     return (
         <>

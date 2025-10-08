@@ -8,6 +8,7 @@ import { slugify } from '@/services/functions';
 import { CustomBasicAksuTab } from '../Tabs/CustomBasicAksuTab';
 import LoadingScreen from '@/components/LoadingScreen';
 import { useSearchParams } from 'next/navigation';
+import ContentNotFound from '../ContentNotFound';
 
 const Projects = () => {
 
@@ -19,12 +20,8 @@ const Projects = () => {
     if (loading) {
         return <LoadingScreen />;
     }
-    if (error) {
-        return <div style={{ color: 'red', textAlign: 'center', margin: '2rem' }}>{error}</div>;
-    }
-    if (!data || data.length === 0) {
-        return <div style={{ color: 'gray', textAlign: 'center', margin: '2rem' }}>Proje bulunamadı.</div>;
-    }
+    if (error) return <ContentNotFound description={error} />;
+    if (!data || data.length === 0) return <ContentNotFound />;
 
     const tabs = [
         {

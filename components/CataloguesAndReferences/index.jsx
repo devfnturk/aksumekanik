@@ -5,10 +5,19 @@ import { useTranslation } from "react-i18next";
 import { useAppSelector } from '@/hooks/redux';
 import { decodeImage } from "@/services/functions";
 import Image from "next/image";
+import ContentNotFound from "../ContentNotFound";
+import LoadingScreen from "../LoadingScreen";
 
 export function CataloguesPageContent() {
     const { t } = useTranslation();
-    const { data } = useAppSelector((state) => state.Catalogues);
+    const { data, loading, error } = useAppSelector((state) => state.Catalogues);
+
+    if (loading) {
+        return <LoadingScreen />;
+    }
+    if (error) return <ContentNotFound description={error} />;
+    if (!data || !data[0]) return <ContentNotFound />;
+
     return (
         <>
             <BreadCrumbArea url='url(/images/breadcrumb.jpeg)' title={t('Header.Kataloglar')} />
