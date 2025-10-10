@@ -32,12 +32,6 @@ export default function GlobalFetchProvider({ children }) {
         }
     }, [persistState]);
 
-    const brandsLoading = useAppSelector(state => state.Brands.loading);
-    const activitiesLoading = useAppSelector(state => state.Activities.loading);
-    const projectsLoading = useAppSelector(state => state.Projects.loading);
-    const referencesLoading = useAppSelector(state => state.References.loading);
-    const fieldOfActivitiesLoading = useAppSelector(state => state.FieldOfActivities.loading);
-
     const brands = useAppSelector(state => state.Brands.data);
     const activities = useAppSelector(state => state.Activities.data);
     const projects = useAppSelector(state => state.Projects.data);
@@ -46,29 +40,43 @@ export default function GlobalFetchProvider({ children }) {
     const fieldOfActivities = useAppSelector(state => state.FieldOfActivities.data);
 
     useEffect(() => {
-        if (!rehydrated) return; // persist bitmeden fetch başlatma
+        if (!rehydrated) return;
 
-        if (shouldFetch('Brands') || !brands || brands.length === 0) {
-            dispatch(fetchGetBrands()).then(() => updateLastFetched('Brands'));
-        }
-        if (shouldFetch('Activities') || !activities || activities.length === 0) {
-            dispatch(fetchGetActivities()).then(() => updateLastFetched('Activities'));
-        }
-        if (shouldFetch('Projects') || !projects || projects.length === 0) {
-            dispatch(fetchGetProjects()).then(() => updateLastFetched('Projects'));
-        }
-        if (shouldFetch('References') || !references || references.length === 0) {
-            dispatch(fetchGetReferences()).then(() => updateLastFetched('References'));
-        }
-        if (shouldFetch('Catalogues') || !catalogues || catalogues.length === 0) {
-            dispatch(fetchGetCatalogues()).then(() => updateLastFetched('Catalogues'));
-        }
-        if (shouldFetch('FieldOfActivities') || !fieldOfActivities || fieldOfActivities.length === 0) {
-            dispatch(fetchGetFieldOfActivities()).then(() => updateLastFetched('FieldOfActivities'));
-        }
+        const fetchAll = async () => {
+            const promises = [];
+
+            if (shouldFetch('Brands') || !brands || brands.length === 0) {
+                promises.push(dispatch(fetchGetBrands()).then(() => updateLastFetched('Brands')));
+            }
+            if (shouldFetch('Activities') || !activities || activities.length === 0) {
+                promises.push(dispatch(fetchGetActivities()).then(() => updateLastFetched('Activities')));
+            }
+            if (shouldFetch('Projects') || !projects || projects.length === 0) {
+                promises.push(dispatch(fetchGetProjects()).then(() => updateLastFetched('Projects')));
+            }
+            if (shouldFetch('References') || !references || references.length === 0) {
+                promises.push(dispatch(fetchGetReferences()).then(() => updateLastFetched('References')));
+            }
+            if (shouldFetch('Catalogues') || !catalogues || catalogues.length === 0) {
+                promises.push(dispatch(fetchGetCatalogues()).then(() => updateLastFetched('Catalogues')));
+            }
+            if (shouldFetch('FieldOfActivities') || !fieldOfActivities || fieldOfActivities.length === 0) {
+                promises.push(dispatch(fetchGetFieldOfActivities()).then(() => updateLastFetched('FieldOfActivities')));
+            }
+
+            // Tüm fetch'leri beklemeden sayfa yüklensin
+            Promise.all(promises).finally(() => {
+                setInitialFetchDone(true);
+            });
+
+            // Sayfayı hemen render et
+            setInitialFetchDone(true);
+        };
+
+        fetchAll();
     }, [dispatch, rehydrated]);
 
-    if (!rehydrated && (brandsLoading || activitiesLoading || projectsLoading || referencesLoading || fieldOfActivitiesLoading)) {
+    if (!rehydrated ) {
         return <LoadingScreen />;
     }
 
