@@ -14,6 +14,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { EffectFade } from "swiper/modules";
+import HtmlContentIsolated from "@/utils/htmlContentIsolated";
 
 const ProductDetail = ({ productId }) => {
 
@@ -46,7 +47,7 @@ const ProductDetail = ({ productId }) => {
                         <div className="container mx-auto px-4">
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="col-span-2 md:col-span-1 mx-auto md:mx-0 md:order-1" data-aos="fade-up" data-aos-duration="2000" data-aos-offset="-200">
-                                    <div>{language === 'tr' ? productDetail?.description : productDetail?.enDescription}</div>
+                                    <HtmlContentIsolated html={language === 'tr' ? productDetail.description : productDetail.enDescription} />
                                     {productDetail.certificates.length > 0 && (
                                         <div className="my-6 flex gap-3">
                                             {productDetail.certificates.map((item, index) => (
