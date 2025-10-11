@@ -5,7 +5,7 @@ import PageText from "@/components/PageText";
 import ProductBox from "@/components/Products/ProductBox";
 import LoadingScreen from '@/components/LoadingScreen';
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { decodeImage } from "@/services/functions";
+// import { decodeImage } from "@/services/functions";
 import { fetchGetActivityAreasByBrand } from "@/stores/ActivityAreasByBrand";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -54,8 +54,9 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
                             {/* Hizmetler */}
                             {type === 'brand' ? data?.filter((item) => item.isActive).sort((a, b) => a.order - b.order).map((item, index) => {
                                 const imageInfo = item.image?.[0];
-                                const imageData = imageInfo?.imageData;
-                                const imageSrc = decodeImage(imageData || '');
+                                // const imageData = imageInfo?.imageData;
+                                const imageSrc = imageInfo?.url;
+                                // const imageSrc = item.image[0].url;
 
                                 return (
                                     <MechanicalApplicationBox
@@ -71,9 +72,9 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
                                     />
                                 );
                             }) : type === 'brandsByActivityArea' ? data?.map((item, index) => {
-                                const imageInfo = item.brands.image?.[0];
-                                const imageData = imageInfo?.imageData;
-                                const imageSrc = decodeImage(imageData || '');
+                                const imageInfo = item.brands?.[0].image?.[0];
+                                // const imageData = imageInfo?.imageData;
+                                const imageSrc = imageInfo?.url;
 
                                 return (
                                     <MechanicalApplicationBox
@@ -90,8 +91,9 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
                                 );
                             }) : data?.filter((item) => item.isActive).map((item, index) => {
                                 const imageInfo = item.image?.[0];
-                                const imageData = imageInfo?.imageData;
-                                const imageSrc = decodeImage(imageData || '');
+                                // const imageData = imageInfo?.imageData;
+                                const imageSrc = imageInfo?.url;
+                                // const imageSrc = item.image[0].url;
 
                                 return (
                                     <MechanicalApplicationBox

@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { decodeImage } from "@/services/functions";
+// import { decodeImage } from "@/services/functions";
 import Link from "next/link";
 
 export default function SliderWithLogo({ data, title }) {
@@ -28,9 +28,10 @@ export default function SliderWithLogo({ data, title }) {
                         className="my-6"
                     >
                         {data.filter((item) => item.isActive).map((image, index) => {
-                            const imageInfo = image.image?.[0];
-                            const imageData = imageInfo?.imageData;
-                            const imageSrc = decodeImage(imageData || '');
+                            // const imageInfo = image.image?.[0];
+                            // const imageData = imageInfo?.imageData;
+                            // const imageSrc = imageInfo?.url || '';
+                            const imageSrc = image.image[0].url;
 
                             return (
                                 <SwiperSlide key={index} className="flex justify-center">

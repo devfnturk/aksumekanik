@@ -1,6 +1,6 @@
 'use client';
 import useAosInit from "@/hooks/useAosInit";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 
 const MechanicalApplicationBox = ({
@@ -32,7 +32,7 @@ const MechanicalApplicationBox = ({
             <div className={`flex flex-col lg:flex-row ${imgLeft ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-5 md:gap-10`}>
                 <div className="lg:w-1/2">
                     {imgSrc && imgSrc !== '' && (
-                        <Image
+                        <img
                             src={imgSrc}
                             alt={title}
                             width={600}

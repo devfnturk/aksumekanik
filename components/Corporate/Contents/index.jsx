@@ -3,7 +3,7 @@
 import Odometer from "@/components/Odometer";
 import { useAppSelector } from "@/hooks/redux";
 import useAosInit from "@/hooks/useAosInit";
-import { decodeImage } from "@/services/functions";
+// import { decodeImage } from "@/services/functions";
 // import { fetchGetReferences } from "@/stores/ReferencesSlice";
 import Image from "next/image";
 import Link from "next/link";
@@ -217,13 +217,14 @@ export const KatalogReferanslarContent = () => {
                 <div className="flex justify-center">
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                         {data.filter((image) => image.isActive).map((image, index) => {
-                            const imageInfo = image.image?.[0];
-                            const imageData = imageInfo?.imageData;
-                            const imageSrc = decodeImage(imageData || '');
+                            // const imageInfo = image.image?.[0];
+                            // const imageData = imageInfo?.imageData;
+                            // const imageSrc = imageInfo?.url || '';
+                            const imageSrc = image.image[0].url;
                             if (image.link && image.link !== '') {
                                 return (
                                     <Link href={image.link} target="_blank" key={image.id}>
-                                        <Image
+                                        <img
                                             src={imageSrc}
                                             alt={image.id.toString()}
                                             width={250}
@@ -234,7 +235,7 @@ export const KatalogReferanslarContent = () => {
                                 );
                             } else {
                                 return (
-                                    <Image
+                                    <img
                                         key={image.id}
                                         src={imageSrc}
                                         alt={image.id.toString()}

@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { fetchGetBanners } from "@/stores/BannerSlice";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { useTranslation } from 'react-i18next';
-import { decodeImage } from "@/services/functions";
+// import { decodeImage } from "@/services/functions";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 
 export default function HomePageSlider() {
@@ -52,10 +52,10 @@ export default function HomePageSlider() {
                     </div>
                 </SwiperSlide>
             )}
-            {data?.filter((slide) => slide.isActive).map((slide) => {
-                const imageInfo = slide.image?.[0];
-                const imageData = imageInfo?.imageData;
-                const imageSrc = decodeImage(imageData || '');
+            {data?.filter((slide) => slide.isActive && slide.image?.[0]?.url).map((slide) => {
+                // const imageInfo = slide.image?.[0];
+                // const imageData = imageInfo?.imageData;
+                const imageSrc = slide.image[0].url;
 
                 return (
                     <SwiperSlide key={slide.id}>

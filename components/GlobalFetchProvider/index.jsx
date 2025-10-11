@@ -39,6 +39,8 @@ export default function GlobalFetchProvider({ children }) {
     const catalogues = useAppSelector(state => state.Catalogues.data);
     const fieldOfActivities = useAppSelector(state => state.FieldOfActivities.data);
 
+    const [initialFetchDone, setInitialFetchDone] = useState(false);
+
     useEffect(() => {
         if (!rehydrated) return;
 
@@ -76,7 +78,7 @@ export default function GlobalFetchProvider({ children }) {
         fetchAll();
     }, [dispatch, rehydrated]);
 
-    if (!rehydrated ) {
+    if (!rehydrated) {
         return <LoadingScreen />;
     }
 

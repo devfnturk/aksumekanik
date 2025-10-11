@@ -1,9 +1,9 @@
 'use client';
 import BreadCrumbArea from "@/components/BreadcrumbArea";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { decodeImage } from "@/services/functions";
+// import { decodeImage } from "@/services/functions";
 import { fetchGetProductDetail } from "@/stores/Products";
-import Image from "next/image";
+// import Image from "next/image";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LoadingScreen from '@/components/LoadingScreen';
@@ -51,7 +51,7 @@ const ProductDetail = ({ productId }) => {
                                     {productDetail.certificates.length > 0 && (
                                         <div className="my-6 flex gap-3">
                                             {productDetail.certificates.map((item, index) => (
-                                                <Image key={index} src={decodeImage(item.imageData)} width={50} height={50} alt={item.name} />
+                                                <img key={index} src={item.url} width={50} height={50} alt={item.name} />
                                             ))}
                                         </div>
                                     )}
@@ -72,20 +72,20 @@ const ProductDetail = ({ productId }) => {
                                                     <SwiperSlide key={index} className="!w-full !h-auto">
                                                         <img
                                                             className="w-full h-auto object-contain"
-                                                            src={decodeImage(image.imageData)}
-                                                            alt={image.name}
+                                                            src={image.url}
+                                                            alt={image.id}
                                                         />
                                                     </SwiperSlide>
                                                 ))}
                                             </Swiper>
                                         </>
                                     ) : (
-                                        <Image
+                                        <img
                                             className="-wfull h-auto object-contain"
-                                            src={decodeImage(productDetail?.images[0].imageData)}
+                                            src={productDetail?.images[0].url}
                                             width={1200}
                                             height={800}
-                                            alt={productDetail.images[0].name}
+                                            alt={productDetail.images[0].id}
                                             layout="responsive"
                                         />
                                     )}
@@ -101,7 +101,7 @@ const ProductDetail = ({ productId }) => {
                                 }
                                 {productDetail.hasTable && (
                                     <div className="col-span-2 order-4" data-aos="fade-right" data-aos-duration="2000" data-aos-offset="-200">
-                                        <img className="object-cover" src={decodeImage(productDetail.tableImage.imageData)} alt={productDetail.tableImage.name} />
+                                        <img className="object-cover" src={productDetail.tableImage.url} alt={productDetail.tableImage.id} />
                                     </div>
                                 )}
                             </div>

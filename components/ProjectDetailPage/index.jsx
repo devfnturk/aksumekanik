@@ -2,7 +2,7 @@
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { useTranslation } from "react-i18next";
 import BreadCrumbArea from "../BreadcrumbArea";
-import { decodeImage } from "@/services/functions";
+// import { decodeImage } from "@/services/functions";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { EffectFade } from "swiper/modules";
 import DetailCard from "../DetailCard";
+import { useEffect } from "react";
 
 const ProjectDetailPage = ({ projectId }) => {
 
@@ -20,9 +21,9 @@ const ProjectDetailPage = ({ projectId }) => {
     const { data, loading, error } = useAppSelector(state => state.Projects);
     const project = data.find((project) => project.id === projectId);
     const imageInfo = project?.image?.[0];
-    const imageData = imageInfo?.imageData;
-    const imageSrc = decodeImage(imageData || '');
-    const imageSources = project?.image?.map(image => decodeImage(image.imageData || '')) || [];
+    // const imageData = imageInfo?.imageData;
+    const imageSrc = imageInfo?.url;
+    const imageSources = project?.image?.map(image => image.url) || [];
 
     return (
         <>
