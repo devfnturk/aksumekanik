@@ -48,7 +48,7 @@ const ProductDetail = ({ productId }) => {
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="col-span-2 md:col-span-1 mx-auto md:mx-0 md:order-1" data-aos="fade-up" data-aos-duration="2000" data-aos-offset="-200">
                                     <HtmlContentIsolated html={language === 'tr' ? productDetail.description : productDetail.enDescription} />
-                                    {productDetail.certificates.length > 0 && (
+                                    {productDetail.certificates && productDetail.certificates.length > 0 && (
                                         <div className="my-6 flex gap-3">
                                             {productDetail.certificates.map((item, index) => (
                                                 <img key={index} src={item.url} width={50} height={50} alt={item.name} />

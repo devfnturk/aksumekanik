@@ -33,6 +33,35 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
         if (activityArea) dispatch(fetchGetBrandsByActivityArea(activityArea))
     }, [activityArea]);
 
+    // Hash navigation için scroll işlemi
+    useEffect(() => {
+        const handleHashNavigation = () => {
+            const hash = window.location.hash;
+            if (hash && type === 'brand') {
+                const elementId = hash.substring(1);
+                const element = document.getElementById(elementId);
+                
+                if (element) {
+                    const headerHeight = 80; // Header yüksekliği
+                    const elementPosition = element.offsetTop - headerHeight;
+                    
+                    // Element render olduktan sonra scroll et
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: elementPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
+                }
+            }
+        };
+
+        // Data yüklendikten sonra hash navigation'ı kontrol et
+        if (data && data.length > 0) {
+            setTimeout(handleHashNavigation, 100);
+        }
+    }, [data, type]);
+
     if (loading) {
         return <LoadingScreen />;
     }

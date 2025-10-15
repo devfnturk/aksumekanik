@@ -39,7 +39,7 @@ export const HakkimizdaContent = () => {
                         <div className="flex items-center justify-center">
                             <Image src='/images/tamamlanan-icon.png' alt="tamamlanan-icon" width={50} height={60} />
                             <div className="lg:mt-0 text-center relative ml-4">
-                                <Odometer className="font-semibold text-2xl md:text-5xl flex odometer relative" value={completedCount} plus={true} />
+                                <Odometer className="font-semibold text-2xl md:text-5xl flex odometer relative" value={205 + completedCount} plus={true} />
                                 {/* <label className="font-bold text-xl md:text-4xl absolute left-[20%] md:left-[30%] top-0.5 md:top-2">+</label> */}
                                 <span className="font-bold uppercase block text-gray-700">{t('Kurumsal.TamamlananProje')}</span>
                             </div>
@@ -225,6 +225,7 @@ export const KatalogReferanslarContent = () => {
                                 return (
                                     <Link href={image.link} target="_blank" key={image.id}>
                                         <img
+                                            className="!max-w-[250px] !max-h-[160px] object-contain"
                                             src={imageSrc}
                                             alt={image.id.toString()}
                                             width={250}

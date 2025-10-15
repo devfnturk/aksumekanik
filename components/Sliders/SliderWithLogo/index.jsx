@@ -40,7 +40,7 @@ export default function SliderWithLogo({ data, title }) {
                                             <img
                                                 src={imageSrc}
                                                 alt={image.id}
-                                                className="max-w-[150px] md:max-w-[200px] mx-auto"
+                                                className="max-w-[150px] md:max-w-[200px] !max-h-[100px] object-contain mx-auto"
                                             />
                                         </Link>
                                     ) : (
