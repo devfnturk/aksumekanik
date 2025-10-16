@@ -168,7 +168,7 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
                                         pageTitle={brand}
                                     />
                                 );
-                            }) : type === 'brandsByActivityArea' ? data?.map((item, index) => {
+                            }) : type === 'brandsByActivityArea' ? data?.filter((item) => item.brands[0].isActive).map((item, index) => {
                                 const imageInfo = item.brands?.[0].image?.[0];
                                 // const imageData = imageInfo?.imageData;
                                 const imageSrc = imageInfo?.url;

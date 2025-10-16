@@ -39,6 +39,7 @@ const ProjectDetailPage = ({ projectId }) => {
                                 <div className="col-span-8 lg:col-span-6 bg-white rounded-b-md p-8">
                                     {/* <h3 className="text-[var(--aksu-green)] font-bold mb-6">{language === 'tr' ? project?.fieldOfActivity : project?.enFieldOfActivity}</h3> */}
                                     <h2 className="text-4xl mb-6" >{language === 'tr' ? project?.title : project?.enTitle}</h2>
+                                    <div className="mb-6">{language === 'tr' ? project?.description : project?.enDescription}</div>
                                     <Swiper
                                         modules={[Autoplay, EffectFade]}
                                         effect="fade"
@@ -50,7 +51,7 @@ const ProjectDetailPage = ({ projectId }) => {
                                     >
                                         {imageSources.map((item, index) => (
                                             <SwiperSlide key={index}>
-                                                <img className="sliderImg max-h-96" src={item} alt={index.toString()} />
+                                                <img className="sliderImg max-h-[15rem] lg:max-h-[30rem] w-full object-cover" src={item} alt={index.toString()} />
                                             </SwiperSlide>
                                         ))}
                                     </Swiper>

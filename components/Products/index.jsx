@@ -55,7 +55,7 @@ const Products = ({ brand, product, brandActivityArea, parent }) => {
                                 key={index}
                                 imageSrc={item.images[0].url}
                                 imageAlt={item.images[0].id}
-                                href={`/markalar/${brand}/${item.id}`}
+                                href={`/cozum-ortaklari/${brand}/${item.id}`}
                                 productName={language === 'tr' ? item.title : item.enTitle}
                                 dataAos={index % 2 === 0 ? 'fade-up' : 'fade-down'} dataAosDuration="2000" dataAosOffset="-200"
                             />

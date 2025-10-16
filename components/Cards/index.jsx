@@ -10,6 +10,18 @@ export const AksuCards = ({ data, type }) => {
     const language = i18n.language;
     useAosInit();
 
+    const truncateText = (text, maxLines = 3) => {
+        if (!text) return '';
+
+        const MAX_CHARS = 180;
+
+        if (text.length <= MAX_CHARS) {
+            return text;
+        }
+
+        return text.substring(0, MAX_CHARS).trim() + '...';
+    };
+
     return (
         <section
             className="pt-4 lg:pt-20 mb-[100px] pb-[100px] projects">
@@ -38,7 +50,7 @@ export const AksuCards = ({ data, type }) => {
                                             {language === 'tr' ? item.title : item.enTitle}
                                         </Link>
                                     </h3>
-                                    <p>{language === 'tr' ? item.description : item.enDescription}</p>
+                                    <p>{type === 'projects' ? truncateText(language === 'tr' ? item.description : item.enDescription) : (language === 'tr' ? item.description : item.enDescription)}</p>
                                     <div className="aksu-card-btn">
                                         <Link href={`/projelerimiz/${item.id}`} className="bg-[var(--aksu-blue)] text-white inline-block px-6 py-2 rounded-full">
                                             {t('Projelerimiz.Devami')}

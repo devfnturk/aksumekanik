@@ -69,10 +69,10 @@ export default function AllMenu({ isScrolled }) {
                             </ul>
                         </div>
                         <div>
-                            <Link href={'/markalar'} className="text-base lg:text-lg font-bold text-[var(--aksu-green)]">{t('Header.Markalar')}</Link>
+                            <Link href={'/cozum-ortaklari'} className="text-base lg:text-lg font-bold text-[var(--aksu-green)]">{t('Header.Markalar')}</Link>
                             <ul className="space-y-2 max-h-32 lg:max-h-64 overflow-y-auto header-item-scrollbar">
                                 {brands?.filter((item) => item.isActive).map((item, index) => (
-                                    <li key={index}><Link href={`/markalar/#${item.id}`}>{language === 'tr' ? item.title : item.enTitle}</Link></li>
+                                    <li key={index}><Link href={`/cozum-ortaklari/#${item.id}`}>{language === 'tr' ? item.title : item.enTitle}</Link></li>
                                 ))}
                             </ul>
                         </div>

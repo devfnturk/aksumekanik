@@ -13,8 +13,8 @@ const MechanicalApplicationBox = ({
     pageTitle
 }) => {
 
-    const link = type === 'brand' ? `/markalar/${id}`
-        : type === 'activityAreasByBrand' ? `/markalar/${pageTitle}/${id}`
+    const link = type === 'brand' ? `/cozum-ortaklari/${id}`
+        : type === 'activityAreasByBrand' ? `/cozum-ortaklari/${pageTitle}/${id}`
             : type === 'activities' ? `/faaliyet-alanlari/${id}`
                 : `/faaliyet-alanlari/${pageTitle}/${id}`;
 

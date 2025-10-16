@@ -14,7 +14,7 @@ const DetailCard = ({ client, location, area, projectDate }) => {
             </div>
 
             {/* Content */}
-            <div className="p-6 space-y-4 text-sm text-gray-800">
+            <div className="p-6 space-y-4 text-sm text-gray-800 border border-[var(--aksu-green)] rounded-b-xl">
                 <div className="border-b border-gray-300 pb-2 font-bold text-lg">
                     <span className="font-light">{t('Projelerimiz.Isveren')}:</span><br />
                     {client}
