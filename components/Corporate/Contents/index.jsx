@@ -225,7 +225,7 @@ export const KatalogReferanslarContent = () => {
                                 return (
                                     <Link href={image.link} target="_blank" key={image.id}>
                                         <img
-                                            className="!max-w-[250px] !max-h-[160px] object-contain"
+                                            className="md:!max-w-[250px] md:!max-h-[160px] object-contain"
                                             src={imageSrc}
                                             alt={image.id.toString()}
                                             width={250}
@@ -237,6 +237,7 @@ export const KatalogReferanslarContent = () => {
                             } else {
                                 return (
                                     <img
+                                        className="md:!max-w-[250px] md:!max-h-[160px] object-contain"
                                         key={image.id}
                                         src={imageSrc}
                                         alt={image.id.toString()}

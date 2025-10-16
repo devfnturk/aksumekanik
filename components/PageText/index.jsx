@@ -1,13 +1,9 @@
 'use client';
 
-import useAosInit from "@/hooks/useAosInit";
-
 const PageText = ({
     title,
     description
 }) => {
-
-    useAosInit();
 
     return (
         <div

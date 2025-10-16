@@ -1,5 +1,4 @@
 'use client';
-import useAosInit from "@/hooks/useAosInit";
 // import Image from "next/image";
 import Link from "next/link";
 
@@ -13,8 +12,6 @@ const MechanicalApplicationBox = ({
     type,
     pageTitle
 }) => {
-
-    useAosInit();
 
     const link = type === 'brand' ? `/markalar/${id}`
         : type === 'activityAreasByBrand' ? `/markalar/${pageTitle}/${id}`
@@ -30,7 +27,7 @@ const MechanicalApplicationBox = ({
             data-aos-offset={dataAosOffset}
         >
             <div className={`flex flex-col lg:flex-row ${imgLeft ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-5 md:gap-10`}>
-                <div className={`${type === 'brand' ? 'lg:w-1/4' : 'lg:w-1/2'}`}>
+                <div className={`${(type === 'brand' || type === 'brandsByActivityArea') ? 'lg:w-1/4' : 'lg:w-1/2'}`}>
                     {imgSrc && imgSrc !== '' && (
                         <img
                             src={imgSrc}
@@ -41,7 +38,7 @@ const MechanicalApplicationBox = ({
                         />
                     )}
                 </div>
-                <div className={`${type === 'brand' ? 'lg:w-3/4' : 'lg:w-1/2'}`}>
+                <div className={`${(type === 'brand' || type === 'brandsByActivityArea') ? 'lg:w-3/4' : 'lg:w-1/2'}`}>
                     <div>
                         <Link href={link} className="text-base md:text-xl font-bold text-gray-900 pt-4 lg:pt-0 areaTitle">{title}</Link>
                         <p className="text-sm md:text-base mt-4 text-gray-700">{content}</p>

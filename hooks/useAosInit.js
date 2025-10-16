@@ -5,6 +5,9 @@ import 'aos/dist/aos.css';
 
 export default function useAosInit() {
     useEffect(() => {
-        AOS.init();
+        AOS.init({
+            duration: 3000,
+            once: false, // Animasyonları tekrar etkinleştirmek için
+        });
     }, []);
 }

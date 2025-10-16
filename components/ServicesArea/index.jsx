@@ -7,7 +7,7 @@ import LoadingScreen from '@/components/LoadingScreen';
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 // import { decodeImage } from "@/services/functions";
 import { fetchGetActivityAreasByBrand } from "@/stores/ActivityAreasByBrand";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { fetchGetBrandsByActivityArea } from "@/stores/BrandsByActivityArea";
 import ContentNotFound from "@/components/ContentNotFound";
@@ -16,6 +16,31 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
 
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
+    
+    // AOS'u sadece bir kez initialize et - hash navigation varsa geçici olarak kapat
+    const [hashNavigationActive, setHashNavigationActive] = useState(false);
+    
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+            setHashNavigationActive(true);
+        }
+    }, []);
+    
+    // Hash navigation aktif değilse AOS'u başlat
+    useEffect(() => {
+        if (!hashNavigationActive && window.AOS) {
+            window.AOS.init({
+                duration: 3000,
+                once: false,
+                offset: 100,
+                delay: 0,
+                easing: 'ease-in-out',
+                mirror: false,
+                anchorPlacement: 'top-bottom'
+            });
+        }
+    }, [hashNavigationActive]);
     const brandsState = useAppSelector((state) => state.Brands);
     const activityAreasByBrandState = useAppSelector((state) => state.ActivityAreasByBrand);
     const brandsByActivityAreasState = useAppSelector((state) => state.BrandsByActivityArea);
@@ -37,30 +62,73 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
     useEffect(() => {
         const handleHashNavigation = () => {
             const hash = window.location.hash;
+            
             if (hash && type === 'brand') {
                 const elementId = hash.substring(1);
-                const element = document.getElementById(elementId);
                 
-                if (element) {
-                    const headerHeight = 80; // Header yüksekliği
-                    const elementPosition = element.offsetTop - headerHeight;
+                // Element'in render olmasını bekle ve scroll et
+                const scrollToElement = (retryCount = 0) => {
+                    const element = document.getElementById(elementId);
                     
-                    // Element render olduktan sonra scroll et
-                    setTimeout(() => {
+                    if (element) {            
+                        // Tüm AOS animasyonlarını durdur
+                        if (window.AOS) {
+                            window.AOS.disable();
+                        }
+                        
+                        // Tüm marka elementlerini görünür yap
+                        const brandElements = document.querySelectorAll('[data-aos]');
+                        brandElements.forEach(el => {
+                            el.style.opacity = '1';
+                            el.style.transform = 'none';
+                            el.style.transition = 'none';
+                        });
+                        
+                        const headerHeight = 80;
+                        const elementPosition = element.offsetTop - headerHeight;
+                                                
+                        // Doğrudan scroll et
                         window.scrollTo({
                             top: elementPosition,
                             behavior: 'smooth'
                         });
-                    }, 300);
-                }
+                        
+                        // Hash navigation tamamlandıktan sonra AOS'u etkinleştir
+                        setTimeout(() => {
+                            setHashNavigationActive(false);
+                            if (window.AOS) {
+                                window.AOS.init({
+                                    duration: 3000,
+                                    once: false,
+                                    offset: 100,
+                                    delay: 0,
+                                    easing: 'ease-in-out',
+                                    mirror: false,
+                                    anchorPlacement: 'top-bottom'
+                                });
+                            }
+                        }, 2000);
+                        
+                    } else if (retryCount < 25) {
+                        setTimeout(() => scrollToElement(retryCount + 1), 400);
+                    } else {
+                        // Element bulunamazsa AOS'u etkinleştir
+                        setHashNavigationActive(false);
+                    }
+                };
+
+                // Sayfanın tamamen yüklenmesini bekle
+                setTimeout(() => {
+                    scrollToElement();
+                }, 1000);
             }
         };
 
         // Data yüklendikten sonra hash navigation'ı kontrol et
-        if (data && data.length > 0) {
-            setTimeout(handleHashNavigation, 100);
+        if (data && data.length > 0 && hashNavigationActive) {
+            setTimeout(handleHashNavigation, 1500);
         }
-    }, [data, type]);
+    }, [data, type, hashNavigationActive]);
 
     if (loading) {
         return <LoadingScreen />;
@@ -89,7 +157,7 @@ export const ServicesArea = ({ type, brand, activityAreasByBrand, activityArea }
 
                                 return (
                                     <MechanicalApplicationBox
-                                        key={index}
+                                        key={`brand-${item.id}`}
                                         id={item.id}
                                         imgSrc={imageSrc}
                                         title={language === 'tr' ? item.title : item.enTitle}
