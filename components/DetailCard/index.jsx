@@ -1,10 +1,20 @@
 'use client'
 
 import { useTranslation } from "react-i18next";
+import dayjs from 'dayjs';
+import "dayjs/locale/tr";
 
 const DetailCard = ({ client, location, area, projectDate }) => {
 
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+
+    // const formattedDate = projectDate ? dayjs(projectDate).format("DD.MM.YYYY") : "";
+    const locale = i18n.language === "tr" ? "tr" : "en";
+    const formattedDate = projectDate
+        ? dayjs(projectDate)
+            .locale(locale)
+            .format(locale === "tr" ? "D MMMM YYYY" : "MMMM D, YYYY")
+        : "";
 
     return (
         <div className="bg-white rounded-xl w-full">
@@ -32,7 +42,7 @@ const DetailCard = ({ client, location, area, projectDate }) => {
 
                 <div className="pt-2 font-bold text-lg">
                     <span className="font-light">{t('Projelerimiz.ProjeTarihi')}:</span><br />
-                    {projectDate}
+                    {formattedDate}
                 </div>
             </div>
         </div>

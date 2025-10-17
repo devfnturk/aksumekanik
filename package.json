@@ -11,6 +11,7 @@
     "dependencies": {
         "@reduxjs/toolkit": "^2.7.0",
         "aos": "^2.3.4",
+        "dayjs": "^1.11.18",
         "formik": "^2.4.6",
         "i18next": "^25.0.0",
         "i18next-browser-languagedetector": "^8.0.5",
